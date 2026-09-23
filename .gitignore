@@ -1,0 +1,16 @@
+# Ambiente virtual do Python
+.venv/
+venv/
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Configurações do PyCharm
+.idea/
+
+# Arquivos com senhas ou configurações privadas
+.env
+
+# Banco de dados local
+db.sqlite3

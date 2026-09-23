@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes do Brasil - Dashboard</title>
+
+    <!-- Ícones do Google (Material Symbols) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- O arquivo CSS (onde estarão as fontes) -->
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <input type="checkbox" name="tema-trocar" id="tema-trocar">
+<div class="pp-wrapper">
+    <!-- Menu Híbrido -->
+    <aside class="pp-sidebar">
+        <h2 class="pp-logo">
+            <span class="material-symbols-outlined">fitness_center</span>
+            RaízesdoBrasil
+        </h2>
+        <nav class="pp-nav">
+            <p class="active">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </p>
+            <p>
+                <span class="material-symbols-outlined">groups</span>
+                <span>Artesãos</span>
+            </p>
+            <p>
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Produtos</span>
+            </p>
+            <p>
+                <span class="material-symbols-outlined">payments</span>
+                <span>Financeiro</span>
+            </p>
+        </nav>
+    </aside>
+
+        <header class="pp-header">
+        <h1>Visão Geral</h1>
+        <div class="pp-header-actions">
+            <span class="material-symbols-outlined pp-icon-btn">notifications</span>
+            <span class="material-symbols-outlined pp-icon-btn">account_circle</span>
+        </div>
+    </header>
+
+    <main class="pp-content">
+        <div class="pp-grid">
+
+            <!-- Card Métricas -->
+            <div class="pp-card">
+                <h3><span class="material-symbols-outlined">group</span> Total Alunos</h3>
+                <p class="pp-value">42</p>
+                <span class="pp-trend pp-trend-up">↑ 12% este mês</span>
+            </div>
+
+            <!-- Card Agenda -->
+            <div class="pp-card">
+                <h3><span class="material-symbols-outlined">event_note</span> Agenda Hoje</h3>
+                <div class="pp-item">
+                    <div class="pp-item-text"><strong>Júlia Silva</strong><small>Treino de Pernas</small></div>
+                    <span class="pp-time-tag">08:00</span>
+                </div>
+                <div class="pp-item">
+                    <div class="pp-item-text"><strong>Marcos V.</strong><small>Avaliação</small></div>
+                    <span class="pp-time-tag">09:30</span>
+                </div>
+            </div>
+
+            <!-- Card Gráfico (Largo) -->
+            <div class="pp-card pp-card-lg">
+                <h3><span class="material-symbols-outlined">monitoring</span> Atividade Semanal</h3>
+                <div class="pp-chart-box">Gráfico de Desempenho</div>
+            </div>
+
+            <!-- Card Aniversários -->
+            <div class="pp-card">
+                <h3><span class="material-symbols-outlined">cake</span> Aniversariantes</h3>
+                <div class="pp-item">
+                    <div class="pp-item-text"><strong>Ricardo Jorge</strong><small>Hoje (11/04)</small></div>
+                    <span class="material-symbols-outlined pp-icon-celebrate">celebration</span>
+                </div>
+            </div>
+
+            <!-- Card Alertas -->
+            <div class="pp-card">
+                <h3><span class="material-symbols-outlined">warning</span> Alertas</h3>
+                <p class="pp-alert-val">3 Mensalidades</p>
+                <small>Pendentes de pagamento</small>
+            </div>
+
+        </div>
+    </main>
+</div> <!-- Fim Wrapper -->
+</body>
+</html>

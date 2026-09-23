@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Homemade+Apple&family=Indie+Flower&display=swap');
+:root {
+/* Fundos */
+    --bg-cor-escura: #8C3703;
+    --bg-cor-sec: #F7EFCA;
+
+    /* Destaques */
+    --cor-destaque: #E85D04;
+    --cor-destaque-sec: #FFBA08;
+
+    /*Textos e Bordas*/
+    --cor-escura: #000000;
+    --cor-claro: #ffffff;
+    --cor-texto-sec: #355A35;
+    --cor-texto-escuro: #519251;
+    /* Tipografia */
+
+    --fonte-padrao:"Cormorant", serif;
+    --fonte-menu-size: 16;
+
+    /* Espaçamentos */
+
+    --padding-padrao: 40px;
+    --padding-sessao: 80px;
+    --gap-padrao: 25px;
+    --padding-cartao: 25px;
+    --altura-menu:80px;
+
+
+    /* Bordas */
+    --borda-arredondada: 12px;
+}
+
+* {
+    /* Preenchimento */
+    padding: 0;
+    /* Margem' */
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+     /* Fonte da página */
+    font-family: var(--fonte-padrao);
+   /* define o espaçamento entre as linhas */
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+    background-color: #faf3e8;
+
+}
+.menu {
+    height: var(--altura-menu);
+    position: sticky;
+    top: 0;
+    background-color: #2E4365;
+    color: var(--cor-destaque);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+}
+
+.logo {
+
+    font-size: 40px;
+    font-weight: bold;
+    color: #F3D58D;
+}
+
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #F3D58D;
+    font-weight: bold;
+    display: block;
+    padding: 15px 10px;
+    font-size: 17px;
+    gap: 8px;
+}
+
+.menu li a:hover {
+
+    border-bottom:#F3D58D 1px solid;
+}
+
+.sessao{
+    background-color: #fffaf3;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+.sessao h2{
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #8C3703;
+}
+
+.sessao p{
+    font-size: 30px;
+    color: #333;
+    text-align:justify;
+}
+
+.sessao .subtitulo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: black;
+    opacity: 0.8;
+
+}
+
+.sessao-nos{
+ padding: 80px 40px;
+    text-align: center;
+    background-color:#faf3e8;
+    margin: 0;
+}
+
+.sessao-nos h2{
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #8C3703;
+}
+.sessao-nos p {
+font-size: 30px;
+    color: #ffffff;
+    justify-content: center;
+}
+
+.carousel{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.carousel img{
+    height: 500px;
+    object-fit: cover;
+}
+
+
+.perfil-hero{
+    padding: 60px 0px;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    flex-direction:column;
+     text-align: center;
+    margin-bottom: 40px;
+
+}
+
+.perfil{
+    display: flex;
+    flex-direction: row; /* MUDA AQUI */
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.perfil h1{
+    font-size: 60px;
+    color: #8C3703;
+    margin-bottom: 20px;
+
+}
+
+.perfil div:last-child{
+    max-width: 800px;
+     display: flex;
+    flex-direction: column;
+}
+
+.perfil-img img{
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 15px;
+
+}
+
+
+.conteudo-criadoras {
+ display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 60px 40px;
+
+}
+
+
+
+.conteudo-criadoras h1{
+     font-size: 60px;
+    color: #8C3703;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.conteudo-criadoras p{
+    font-size: 28px;
+    color:#000000;
+
+    line-height: 1.6;
+
+    max-width: 900px;
+
+    text-align: left;
+}
+
+
+
+.conteudo{
+    padding: 40px;
+
+}
+
+.conteudo h1{
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #8C3703;
+
+
+}
+
+.cards-artesao{
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* espaço entre os cards */
+    flex-wrap: wrap;
+
+
+}
+
+.card-artesao{
+    width: 550px;       /* largura maior */
+    min-height: 350px;  /* altura maior */
+    background: #E8CB7A;
+    border-radius: 20px;
+    padding: 30px;      /* espaço interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+}
+
+.card-artesao p{
+
+    color: white;
+    font-size: 1.8rem; /* diminui um pouco a letra */
+    line-height: 1.5;  /* espaço entre linhas */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.sessao-perfil-hero{
+     padding: 30px;
+}
+
+.sessao-contato{
+    padding: 30px;
+}
+
+.sessao-contato h2{
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8C3703;
+
+}
+
+.sessao-contato .subtitulo {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: black;
+    opacity: 0.8;
+    font-size: 20px;
+
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-padrao);
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+}
+
+.rede {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    border-radius: var(--borda-arredondada);
+    color: var(--cor-destaque-sec);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.rede.instagram {
+    background-color: #2E4365;
+}
+
+.rede.instagram:hover {
+    background-color: #4f691f;
+}
+
+.rede.whatsapp {
+    background-color: #2E4365;
+}
+
+.rede.whatsapp:hover {
+    background-color: #4f691f;
+}
+
+.rede.email {
+    background-color: #2E4365;
+}
+
+.rede.email:hover {
+    background-color: #4f691f;
+}
+
+.rede i {
+    font-size: 18px;
+}
+
+.rede:hover {
+    transform: translateY(-5px);
+}
+
+.footer {
+    width: 100%;
+    background-color: #f0d58c;
+    color: #000000;
+    text-align: center;
+    margin: 0;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-logo span {
+    color: #000000;
+}
+
+.footer-texto {
+    font-size: 20px;
+    opacity: 1;
+}

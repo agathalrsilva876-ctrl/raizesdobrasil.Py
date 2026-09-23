@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Ícone da página -->
+    <link rel="shortcut icon"
+          href="{% static 'img/home/logo (2).png' %}"
+          type="image/x-icon">
+
+    <title>Raízes do Brasil | Sobre nós</title>
+
+    <!-- Ícones Bootstrap -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- CSS próprio -->
+    <link rel="stylesheet" href="{% static 'css/quem_somos.css' %}">
+</head>
+
+<body>
+
+<main class="pg-container">
+
+    <!-- MENU -->
+    <nav class="menu" id="menu">
+
+        <div class="logo">
+            <p>Raízes Do<span> Brasil</span></p>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'core:home' %}#regioes">
+                    <i class="bi bi-globe-americas"></i>
+                    <span>Regiões</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Entrar</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- QUEM SOMOS -->
+
+    <div class="conteudo">
+
+        <section class="sessao">
+
+            <h2>Quem Somos</h2>
+
+            <p>
+                Nossa plataforma foi desenvolvida com o objetivo de valorizar e divulgar
+                o artesanato brasileiro por meio de um ambiente digital simples e
+                acessível. A proposta busca conectar artesãos e clientes, oferecendo um
+                espaço virtual onde os produtos possam ser apresentados de forma
+                organizada e atrativa.
+
+                O principal propósito da plataforma é aumentar a visibilidade dos
+                artesãos, facilitar o acesso do público aos produtos artesanais e
+                contribuir para a preservação da cultura e da criatividade brasileira.
+
+                Além disso, o sistema foi pensado para proporcionar praticidade,
+                inclusão digital e mais oportunidades para pequenos produtores
+                divulgarem seu trabalho.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- EQUIPE -->
+
+    <section id="depoimento" class="sessao-nos">
+
+        <h2>Conheça Nossa Equipe</h2>
+
+        <div>
+
+            <div id="carouselExampleCaptions" class="carousel slide">
+
+                <!-- Indicadores -->
+
+                <div class="carousel-indicators">
+
+                    <button type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="0"
+                            class="active">
+                    </button>
+
+                    <button type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="1">
+                    </button>
+
+                    <button type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="2">
+                    </button>
+
+                    <button type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="3">
+                    </button>
+
+                    <button type="button"
+                            data-bs-target="#carouselExampleCaptions"
+                            data-bs-slide-to="4">
+                    </button>
+
+                </div>
+
+
+                <!-- Slides -->
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+
+                        <img src="{% static 'img/sobre_nos/raizesdonas.jpeg' %}"
+                             class="d-block w-100"
+                             alt="Criadoras da plataforma">
+
+                        <div class="carousel-caption">
+                            <h5>Criadoras da Plataforma Raízes Do Brasil</h5>
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <img src="{% static 'img/sobre_nos/janaine.jpeg' %}"
+                             class="d-block w-100"
+                             alt="Janaine Martins">
+
+                        <div class="carousel-caption">
+                            <h5>Janaine Martins</h5>
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <img src="{% static 'img/sobre_nos/yasmin.jpeg' %}"
+                             class="d-block w-100"
+                             alt="Yasmin Borges">
+
+                        <div class="carousel-caption">
+                            <h5>Yasmin Borges</h5>
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <img src="{% static 'img/sobre_nos/izabella.jpeg' %}"
+                             class="d-block w-100"
+                             alt="Izabella Vitória">
+
+                        <div class="carousel-caption">
+                            <h5>Izabella Vitória</h5>
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <img src="{% static 'img/sobre_nos/agatha.jpeg' %}"
+                             class="d-block w-100"
+                             alt="Ágatha Larissa">
+
+                        <div class="carousel-caption">
+                            <h5>Ágatha Larissa</h5>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Botão anterior -->
+
+                <button class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon"></span>
+
+                </button>
+
+
+                <!-- Botão próximo -->
+
+                <button class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon"></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARDS DAS CRIADORAS -->
+
+        <div class="conteudo-criadoras">
+
+            <!-- Ágatha -->
+
+            <div class="perfil">
+
+                <div class="perfil-img">
+
+                    <img src="{% static 'img/sobre_nos/agatha_card.jpg' %}"
+                         alt="Ágatha Lopes"
+                         title="RaízesDoBrasil - Ágatha">
+
+                </div>
+
+                <div>
+
+                    <h1>Ágatha Lopes</h1>
+
+                    <p>
+                        Responsável pela organização visual e estrutura da plataforma,
+                        contribuindo para a criação de páginas mais acessíveis,
+                        modernas e intuitivas para os usuários.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Izabella -->
+
+            <div class="perfil">
+
+                <div class="perfil-img">
+
+                    <img src="{% static 'img/sobre_nos/izabella_card.jpg' %}"
+                         alt="Izabella Vitória"
+                         title="RaízesDoBrasil - Izabella">
+
+                </div>
+
+                <div>
+
+                    <h1>Izabella Vitória</h1>
+
+                    <p>
+                        Participou da criação e desenvolvimento da plataforma,
+                        colaborando na parte criativa, organização do projeto
+                        e apresentação visual do sistema.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Yasmin -->
+
+            <div class="perfil">
+
+                <div class="perfil-img">
+
+                    <img src="{% static 'img/sobre_nos/yasmin_card.jpg' %}"
+                         alt="Yasmin Borges"
+                         title="RaízesDoBrasil - Yasmin">
+
+                </div>
+
+                <div>
+
+                    <h1>Yasmin Borges</h1>
+
+                    <p>
+                        Contribuiu na pesquisa, idealização e desenvolvimento do
+                        conteúdo, ajudando a valorizar a cultura e o artesanato
+                        brasileiro dentro da plataforma.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Janaine -->
+
+            <div class="perfil">
+
+                <div class="perfil-img">
+
+                    <img src="{% static 'img/sobre_nos/janaine_card.jpg' %}"
+                         alt="Janaine Martins"
+                         title="RaízesDoBrasil - Janaine">
+
+                </div>
+
+                <div>
+
+                    <h1>Janaine Martins</h1>
+
+                    <p>
+                        Atuou no desenvolvimento e planejamento do projeto,
+                        auxiliando na construção das funcionalidades e na
+                        organização das informações da plataforma.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMO SE TORNAR ASSOCIADO -->
+
+    <div class="conteudo">
+
+        <h1>Como se tornar um artesão associado</h1>
+
+        <section class="sessao-perfil-hero">
+
+            <div class="cards-artesao">
+
+                <div class="card-artesao">
+
+                    <p>
+                        Para divulgar seus produtos na plataforma, é necessário
+                        realizar um cadastro de artesão associado. Após o envio
+                        das informações, nossa equipe fará uma análise para
+                        validar os dados e garantir a qualidade e autenticidade
+                        dos produtos apresentados.
+                    </p>
+
+                </div>
+
+
+                <div class="card-artesao">
+
+                    <p>
+                        Com a aprovação do cadastro, o artesão receberá acesso
+                        à plataforma para adicionar, editar e divulgar seus
+                        produtos, alcançando mais pessoas e fortalecendo a
+                        valorização do artesanato brasileiro.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CONTATO -->
+
+    <section id="contato" class="sessao-contato">
+
+        <h2>Entre Em Contato Conosco</h2>
+
+        <p class="subtitulo">
+            Alguma dúvida? Entre em contato pelas redes.
+        </p>
+
+        <div class="redes">
+
+            <a href="https://www.instagram.com/raizesdbrasil_/"
+               target="_blank"
+               class="rede instagram">
+
+                <i class="bi bi-instagram"></i>
+                Instagram
+
+            </a>
+
+
+            <a href="#"
+               class="rede whatsapp">
+
+                <i class="bi bi-whatsapp"></i>
+                WhatsApp
+
+            </a>
+
+
+            <a href="mailto:contato.raizesdobrasil@gmail.com"
+               class="rede email">
+
+                <i class="bi bi-envelope"></i>
+                E-mail
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p class="footer-logo">
+        RaízesDo<span>Brasil</span>
+    </p>
+
+    <p class="footer-texto">
+        &copy; 2026 RaízesDoBrasil • Todos os direitos reservados
+    </p>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
