@@ -1,1 +1,362 @@
 <link rel="stylesheet" href="css/regiao.css">
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regiões - Raízes do Brasil</title>
+
+    <!-- Fontes do projeto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-body: #F4EFE6;
+            --header-bg: #0F1D21;
+            --card-bg: #FFFFFF;
+            --text-title: #1C1C1C;
+            --text-body: #4A4A4A;
+            --accent-green: #2D4F3C;
+            --font-title: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--header-bg);
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        nav a.active {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .main-container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--text-title);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* FILA DOS CARDS DAS REGIÕES */
+        .regions-grid {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .region-card {
+            position: relative;
+            width: 190px;
+            height: 280px;
+            background: #FFF;
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .region-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .region-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .region-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .region-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .region-card-title {
+            font-family: var(--font-title);
+            color: #FFFFFF;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* CARD DE INFORMAÇÃO DA REGIÃO SELECIONADA */
+        .region-info-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 2.5rem;
+            display: none;
+        }
+
+        .region-info-card.active {
+            display: block;
+        }
+
+        .region-info-card h2 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--text-title);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .region-info-card p {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* ARTESÃOS DA REGIÃO */
+        .artisan-section-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--text-title);
+            margin-top: 2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .artisan-card-item {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-top: 1rem;
+            border: 1px solid #F0F0F0;
+        }
+
+        .artisan-card-item h3 {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--text-title);
+            margin-bottom: 0.3rem;
+        }
+
+        .artisan-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .btn-view {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: var(--header-bg);
+            color: #FFF;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">Raízes do Brasil</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/regioes/" class="active">Regiões</a>
+            <a href="/sobre/">Sobre</a>
+            <a href="#">Entrar</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <h1 class="section-title">Regiões</h1>
+
+        <!-- GRID COM IMAGENS VÁLIDAS -->
+        <div class="regions-grid">
+            <div class="region-card" onclick="openRegion('norte')">
+                <div class="region-card-inner">
+                    <img src="https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&w=600&q=80" alt="Norte">
+                    <div class="region-card-overlay">
+                        <span class="region-card-title">Norte</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card" onclick="openRegion('nordeste')">
+                <div class="region-card-inner">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" alt="Nordeste">
+                    <div class="region-card-overlay">
+                        <span class="region-card-title">Nordeste</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card" onclick="openRegion('centro-oeste')">
+                <div class="region-card-inner">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Centro Oeste">
+                    <div class="region-card-overlay">
+                        <span class="region-card-title">Centro Oeste</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card" onclick="openRegion('sudeste')">
+                <div class="region-card-inner">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Sudeste">
+                    <div class="region-card-overlay">
+                        <span class="region-card-title">Sudeste</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-card" onclick="openRegion('sul')">
+                <div class="region-card-inner">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Sul">
+                    <div class="region-card-overlay">
+                        <span class="region-card-title">Sul</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTEÚDO DAS REGIÕES -->
+
+        <div id="norte" class="region-info-card active">
+            <h2>Artesanato da Região Norte</h2>
+            <p>Inspirado na riqueza da Floresta Amazônica e na herança indígena, o artesanato do Norte destaca-se pelas peças em cerâmica Marajoara e Tapajônica, biojoias feitas com sementes nativas e entalhes em madeira sustentável.</p>
+
+            <h3 class="artisan-section-title">Artesãos & Ateliês do Norte</h3>
+            <div class="artisan-card-item">
+                <h3>Ateliê Cerâmica da Amazônia</h3>
+                <span class="artisan-tag">Cerâmica Marajoara</span>
+                <p>Produção artesanal de vasos e peças utilitárias com grafismos ancestrais indígenas. 📍 Belém - PA</p>
+                <a href="#" class="btn-view">Ver Loja</a>
+            </div>
+        </div>
+
+        <div id="nordeste" class="region-info-card">
+            <h2>Artesanato da Região Nordeste</h2>
+            <p>Marcado por cores vivas e tradições centenárias, o Nordeste destaca-se pelas rendas de bilro e renascença, esculturas de barro inspiradas no sertão, garrafas de areia colorida e cestaria em palha.</p>
+
+            <h3 class="artisan-section-title">Artesãos & Ateliês do Nordeste</h3>
+            <div class="artisan-card-item">
+                <h3>Mestre do Barro & Cia</h3>
+                <span class="artisan-tag">Esculturas de Barro</span>
+                <p>Figuras e cenas do cotidiano sertanejo moldadas manualmente em argila. 📍 Caruaru - PE</p>
+                <a href="#" class="btn-view">Ver Loja</a>
+            </div>
+        </div>
+
+        <div id="centro-oeste" class="region-info-card">
+            <h2>Artesanato da Região Centro-Oeste</h2>
+            <p>Expressão direta da beleza do Cerrado e do Pantanal. Destacam-se as peças tecidas em Capim Dourado do Jalapão, esculturas de animais em madeira de reuso e pedras regionais.</p>
+
+            <h3 class="artisan-section-title">Artesãos & Ateliês do Centro-Oeste</h3>
+            <div class="artisan-card-item">
+                <h3>Dourados do Jalapão</h3>
+                <span class="artisan-tag">Peças em Capim-Dourado</span>
+                <p>Acessórios, mandalas e objetos decorativos confeccionados artesanalmente. 📍 Mateiros - TO</p>
+                <a href="#" class="btn-view">Ver Loja</a>
+            </div>
+        </div>
+
+        <div id="sudeste" class="region-info-card">
+            <h2>Artesanato da Região Sudeste</h2>
+            <p>Unindo tradição barroca e design contemporâneo, o Sudeste é referência no trabalho esculpido em pedra-sabão, na tecelagem manual em tear, na cerâmica de alta temperatura e no bordado de tradição.</p>
+
+            <h3 class="artisan-section-title">Artesãos & Ateliês do Sudeste</h3>
+            <div class="artisan-card-item">
+                <h3>Ateliê Pedras de Minas</h3>
+                <span class="artisan-tag">Arte em Pedra-Sabão</span>
+                <p>Utensílios, panelas e peças decorativas esculpidas manualmente segundo a tradição mineira. 📍 Ouro Preto - MG</p>
+                <a href="#" class="btn-view">Ver Loja</a>
+            </div>
+        </div>
+
+        <div id="sul" class="region-info-card">
+            <h2>Artesanato da Região Sul</h2>
+            <p>Com influências da cultura gaúcha e dos imigrantes europeus, o artesanato sulista destaca-se pelo trabalho em couro, lã natural, marchetaria em madeira e cuias trabalhadas.</p>
+
+            <h3 class="artisan-section-title">Artesãos & Ateliês do Sul</h3>
+            <div class="artisan-card-item">
+                <h3>Couro & Tradição Gaúcha</h3>
+                <span class="artisan-tag">Artefatos em Couro & Lã</span>
+                <p>Cuias ornamentadas, selaria e acessórios em couro feitos à mão. 📍 Pelotas - RS</p>
+                <a href="#" class="btn-view">Ver Loja</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function openRegion(id) {
+            document.querySelectorAll('.region-info-card').forEach(card => card.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
