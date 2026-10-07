@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro realizado</title>
+
+    {% load static %}
+
+    <title>Loja cadastrada</title>
+
+    <link rel="stylesheet" href="{% static 'artesaos/cadastro_sucesso.css' %}">
 </head>
 
 <body>
 
-    <h1>Cadastro realizado com sucesso!</h1>
+    <main class="sucesso-container">
 
-    <p>Sua loja foi cadastrada no Raízes do Brasil.</p>
+        <div class="icone-sucesso">
+            ✓
+        </div>
 
-    <a href="{% url 'artesaos:cadastrar' %}">
-        Cadastrar outro artesão
-    </a>
+        <h1>Loja cadastrada com sucesso!</h1>
+
+        <p class="mensagem-principal">
+            Parabéns, <strong>{{ artesao.nome }}</strong>!
+        </p>
+
+        <p>
+            A loja <strong>{{ artesao.nome_loja }}</strong> já faz parte
+            do Raízes do Brasil.
+        </p>
+
+        <div class="divisao"></div>
+
+        <h2>Deseja cadastrar os produtos da sua loja?</h2>
+
+        <p class="mensagem-secundaria">
+            Adicione seus produtos para que eles possam aparecer
+            na vitrine do Raízes do Brasil.
+        </p>
+
+        <div class="botoes">
+
+            <a
+                href="{% url 'produtos:cadastrar' artesao_id=artesao.id %}"
+                class="botao principal"
+            >
+                Cadastrar produtos
+            </a>
+
+            <a
+                href="{% url 'artesaos:cadastro_sem_produtos' artesao_id=artesao.id %}"
+                class="botao secundario"
+            >
+                Cadastrar depois
+            </a>
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

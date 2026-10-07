@@ -29,4 +29,9 @@ class ArtesaoForm(forms.ModelForm):
 
         widgets = {
             'descricao': forms.Textarea(attrs={'rows': 4}),
+            'telefone': forms.TextInput(attrs={
+                'placeholder': '(00) 00000-0000',
+                'maxlength': '15',
+                'id': 'telefone'
+            }),
         }
