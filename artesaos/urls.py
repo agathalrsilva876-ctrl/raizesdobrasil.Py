@@ -4,5 +4,27 @@ from . import views
 app_name = 'artesaos'
 
 urlpatterns = [
-    path('regioes/', views.regioes, name='regioes'),
+    path(
+        'regioes/',
+        views.regioes,
+        name='regioes'
+    ),
+
+    path(
+        'cadastrar/',
+        views.cadastrar_artesao,
+        name='cadastrar'
+    ),
+
+    path(
+        'cadastro-sucesso/<int:artesao_id>/',
+        views.cadastro_sucesso,
+        name='cadastro_sucesso'
+    ),
+
+    path(
+        'cadastro-sem-produtos/<int:artesao_id>/',
+        views.cadastro_sem_produtos,
+        name='cadastro_sem_produtos'
+    ),
 ]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+
+    <title>Cadastrar Produto</title>
+
+    <link rel="stylesheet" href="{% static 'produtos/cadastro.css' %}">
+</head>
+
+<body>
+
+    <main class="produto-container">
+
+        <h1>Cadastrar Produto</h1>
+
+        <p class="loja">
+            Loja: <strong>{{ artesao.nome_loja }}</strong>
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <div class="fotos">
+
+                <label for="imagens">
+                    Fotos do produto (até 4):
+                </label>
+
+                <input
+                    type="file"
+                    name="imagens"
+                    id="imagens"
+                    accept="image/*"
+                    multiple
+                >
+
+                <p class="dica-fotos">
+                    Você pode selecionar até 4 fotos do produto.
+                </p>
+
+            </div>
+
+            <button type="submit">
+                Cadastrar produto
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>
