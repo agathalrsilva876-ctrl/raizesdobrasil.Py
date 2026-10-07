@@ -87,20 +87,25 @@
 
         <div class="galeria">
 
-            <img src="{% static 'img/home/norte.png' %}"
-                 alt="Região Norte">
+            <a href="#">
+                <img src="{% static 'img/home/norte.png' %}" alt="Região Norte">
+            </a>
 
-            <img src="{% static 'img/home/nordeste.png' %}"
-                 alt="Região Nordeste">
+            <a href="#">
+                <img src="{% static 'img/home/nordeste.png' %}" alt="Região Nordeste">
+            </a>
 
-            <img src="{% static 'img/home/centro oeste.png' %}"
-                 alt="Região Centro-Oeste">
+            <a href="#">
+                <img src="{% static 'img/home/centro oeste.png' %}" alt="Região Centro-Oeste">
+            </a>
 
-            <img src="{% static 'img/home/sudeste.png' %}"
-                 alt="Região Sudeste">
-
-            <img src="{% static 'img/home/sul.png' %}"
-                 alt="Região Sul">
+            <!-- LINK PARA A PÁGINA DO SUDESTE -->
+            <a href="{% url 'core:sudeste' %}">
+    <img src="{% static 'img/home/sudeste.png' %}" alt="Região Sudeste">
+</a>
+            <a href="#">
+                <img src="{% static 'img/home/sul.png' %}" alt="Região Sul">
+            </a>
 
         </div>
 

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Região Sudeste - Raízes do Brasil</title>
+
+    <link rel="icon" href="{% static 'img/home/logo (2).png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/regiao.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sudeste.css' %}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="{% url 'core:home' %}">
+                <img src="{% static 'img/home/logo (2).png' %}" alt="Logo Raízes do Brasil">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'core:home' %}">Home</a></li>
+                <li><a href="{% url 'artesaos:regioes' %}">Regiões</a></li>
+                <li><a href="{% url 'core:quem_somos' %}">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="regiao-container">
+        <section class="banner-regiao">
+            <h1>REGIÃO SUDESTE</h1>
+            <p>Conheça o rico artesanato e as tradições culturais dos estados de Minas Gerais, Espírito Santo, Rio de Janeiro e São Paulo.</p>
+        </section>
+
+        <section class="destaques">
+            <h2>Destaques Culturais e Artesanais</h2>
+            <div class="linha-decorativa"></div>
+
+            <div class="cards-grid">
+
+                <!-- CARD MINAS GERAIS -->
+                <div class="card">
+                    <img src="{% static 'img/sudeste/Artesanato em Pedra Sabão e Cerâmica.jpg' %}" alt="Artesanato Mineiro" class="card-img">
+                    <div class="card-content">
+                        <span class="tag">MINAS GERAIS</span>
+                        <h3>Artesanato em Pedra Sabão e Cerâmica</h3>
+                        <p>Esculturas, peças utilitárias e cerâmicas tradicionais do Vale do Jequitinhonha e Ouro Preto.</p>
+                        <a href="#" class="btn">Ver Artesãos</a>
+                    </div>
+                </div>
+
+                <!-- CARD ESPÍRITO SANTO -->
+                <div class="card">
+                    <img src="{% static 'img/sudeste/Panelas de Barro Capixabas.jpg' %}" alt="Panelas de Barro" class="card-img">
+                    <div class="card-content">
+                        <span class="tag">ESPÍRITO SANTO</span>
+                        <h3>Panelas de Barro Capixabas</h3>
+                        <p>Tradição secular modelada à mão pelas paneleiras de Goiabeiras, patrimônio imaterial do Brasil.</p>
+                        <a href="#" class="btn">Ver Artesãos</a>
+                    </div>
+                </div>
+
+                <!-- CARD RIO DE JANEIRO -->
+                <div class="card">
+                    <img src="{% static 'img/sudeste/Cerâmica Artística de Paraty.jpg' %}" alt="Cerâmica de Paraty" class="card-img">
+                    <div class="card-content">
+                        <span class="tag">RIO DE JANEIRO</span>
+                        <h3>Cerâmica Artística de Paraty</h3>
+                        <p>A união entre arte contemporânea e técnicas tradicionais nas vilas históricas do litoral fluminense.</p>
+                        <a href="#" class="btn">Ver Artesãos</a>
+                    </div>
+                </div>
+
+                <!-- CARD SÃO PAULO -->
+                <div class="card">
+                    <img src="{% static 'img/sudeste/Tecelagem e Fibras Naturais.jpg' %}" alt="Tecelagem e Fibras" class="card-img">
+                    <div class="card-content">
+                        <span class="tag">SÃO PAULO</span>
+                        <h3>Tecelagem e Fibras Naturais</h3>
+                        <p>Trabalho artesanal com fibra de bananeira e tecelagem sustentável do Vale do Paraíba.</p>
+                        <a href="#" class="btn">Ver Artesãos</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
