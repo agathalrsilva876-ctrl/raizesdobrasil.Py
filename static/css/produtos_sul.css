@@ -1,0 +1,306 @@
+/* ==============================
+   CONFIGURAÇÃO GERAL
+================================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #faffc7;
+    color: rgb(28, 53, 31);
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==============================
+   MENU
+================================= */
+
+.menu {
+    width: 100%;
+    height: 70px;
+
+    background-color: #6f83b6;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.menu .logo p {
+    margin: 0;
+    color: #f2d17e;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.menu .logo span {
+    font-weight: normal;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #f2d17e;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 16px;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+
+/* ==============================
+   CABEÇALHO
+================================= */
+
+.cabecalho-sul {
+    height: 280px;
+
+    background-image: url("../img/home/sulfundo,produto.png");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+}
+
+.cabecalho-sul::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.cabecalho-sul h1,
+.cabecalho-sul p {
+    position: relative;
+    z-index: 1;
+}
+
+.cabecalho-sul h1 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+
+    text-shadow: 2px 2px 5px black;
+}
+
+.cabecalho-sul p {
+    margin-top: 10px;
+    font-size: 18px;
+
+    text-shadow: 1px 1px 3px black;
+}
+
+
+/* ==============================
+   PRODUTOS
+================================= */
+
+.pagina-produtos {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 50px 30px;
+}
+
+.pagina-produtos h2 {
+    margin: 0 0 35px;
+
+    text-align: center;
+
+    font-size: 30px;
+}
+
+
+/* ==============================
+   CARDS
+================================= */
+
+.lista-produtos {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 5px;
+
+
+}
+
+.card-produto {
+    background-color: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-produto img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.info-produto {
+    padding: 20px;
+}
+
+.info-produto h3 {
+    margin: 0 0 12px;
+
+    font-size: 21px;
+
+    color: rgb(28, 53, 31);
+}
+
+.info-produto .descricao {
+    min-height: 60px;
+
+    margin-bottom: 15px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    color: #555;
+}
+
+.info-produto .preco {
+    margin: 15px 0;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: rgb(28, 53, 31);
+}
+
+.info-produto .artesao {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.info-produto .local {
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+
+/* ==============================
+   RODAPÉ
+================================= */
+
+.footer {
+    margin-top: 20px;
+
+    padding: 30px 20px;
+
+    background-color: #6f83b6;
+
+    color: #f2d17e;
+
+    text-align: center;
+}
+
+.footer-logo {
+    margin: 0 0 8px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.footer-logo span {
+    font-weight: normal;
+}
+
+.footer-texto {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   CELULAR
+================================= */
+
+@media (max-width: 850px) {
+
+    .lista-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu ul {
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .lista-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecalho-sul {
+        height: 250px;
+    }
+
+    .cabecalho-sul h1 {
+        font-size: 40px;
+    }
+
+    .pagina-produtos {
+        padding: 35px 20px;
+    }
+
+    .menu {
+        padding: 0 20px;
+    }
+}
