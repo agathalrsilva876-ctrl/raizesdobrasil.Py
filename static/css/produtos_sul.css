@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #faffc7;
+    background-color: #FFF9D9;
     color: rgb(28, 53, 31);
     font-family: Arial, sans-serif;
 }
@@ -161,14 +161,10 @@ body {
 }
 
 .card-produto {
-    background-color: white;
-
+    background-color: #dfe1e8;
     border-radius: 12px;
-
     overflow: hidden;
-
-    border: 1px solid #ddd;
-
+    border: 1px solid #E2C66D;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -303,4 +299,15 @@ body {
     .menu {
         padding: 0 20px;
     }
+    .link-produto {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.link-produto:hover {
+    color: inherit;
+    transform: translateY(-4px);
+    transition: 0.2s;
+}
 }
