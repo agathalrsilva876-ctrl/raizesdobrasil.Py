@@ -1,0 +1,404 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raízes do Brasil | Detalhes do Produto</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFF7D6;
+            color: #1C351F;
+            font-family: Arial, sans-serif;
+        }
+
+        /* MENU */
+        .menu {
+            background-color: #7F91BC;
+            padding: 15px 3%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #FFF2B8;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: #FFF2B8;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: white;
+        }
+
+        /* CAMINHO */
+        .caminho {
+            padding: 20px 4% 10px;
+            font-size: 14px;
+        }
+
+        .caminho a {
+            color: #1C351F;
+            text-decoration: none;
+        }
+
+        /* PRODUTO */
+        .detalhes {
+            display: grid;
+            grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+            gap: 32px;
+            padding: 15px 4% 30px;
+            align-items: center;
+        }
+
+        .imagem-produto {
+            display: block;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+
+        .informacoes h1 {
+            font-size: 32px;
+            margin: 0 0 12px;
+        }
+
+        .descricao {
+            color: #455267;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .local {
+            color: #586477;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        /* BOTÃO */
+        .botao-voltar {
+            display: inline-block;
+            background-color: #1C351F;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        .botao-voltar:hover {
+            background-color: #315638;
+            color: white;
+        }
+
+        /* INFORMAÇÕES ADICIONAIS */
+        .informacoes-adicionais {
+            margin: 0 4% 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .caixa-informacao {
+            background-color: #DCE8F7;
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .caixa-informacao h2 {
+            font-size: 19px;
+            margin: 0 0 15px;
+        }
+
+        .caixa-informacao p {
+            color: #455267;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .caixa-informacao i {
+            color: #1C351F;
+            margin-right: 7px;
+        }
+
+        .contato {
+            color: #1C351F;
+            text-decoration: none;
+        }
+
+        .contato:hover {
+            text-decoration: underline;
+        }
+
+        /* RODAPÉ */
+        .rodape {
+            background-color: #7F91BC;
+            color: #FFF2B8;
+            padding: 20px 4%;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .rodape h3 {
+            font-size: 20px;
+            margin: 0 0 7px;
+        }
+
+        .rodape p {
+            font-size: 12px;
+            margin: 5px 0;
+        }
+
+        /* TELAS MENORES */
+        @media (max-width: 700px) {
+            .menu {
+                justify-content: center;
+            }
+
+            .menu ul {
+                justify-content: center;
+            }
+
+            .detalhes {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .area-imagem {
+                max-width: 360px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .imagem-produto {
+                height: 300px;
+            }
+
+            .informacoes h1 {
+                font-size: 27px;
+            }
+
+            .informacoes-adicionais {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <nav class="menu">
+        <p class="logo">Raízes do Brasil</p>
+
+        <ul>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i> Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'artesaos:regioes' %}">
+                    <i class="bi bi-globe-americas"></i> Regiões
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i> Sobre
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CAMINHO -->
+    <div class="caminho">
+        <a href="{% url 'core:home' %}">Home</a>
+        &gt;
+        <a href="{% url 'produtos:produtos_sul' %}">Região Sul</a>
+        &gt;
+        {{ produto.nome }}
+    </div>
+
+    <!-- DETALHES DO PRODUTO -->
+    <main class="detalhes">
+
+        <div class="area-imagem">
+            {% if produto.id == 1 %}
+                <img class="imagem-produto"
+                     src="{% static 'img/produtos/bracelete.jpg' %}"
+                     alt="{{ produto.nome }}">
+            {% elif produto.id == 2 %}
+                <img class="imagem-produto"
+                     src="{% static 'img/produtos/braceleteazul.jpg' %}"
+                     alt="{{ produto.nome }}">
+            {% elif produto.id == 3 %}
+                <img class="imagem-produto"
+                     src="{% static 'img/produtos/pulseira.jpg' %}"
+                     alt="{{ produto.nome }}">
+            {% elif produto.id == 4 %}
+                <img class="imagem-produto"
+                     src="{% static 'img/produtos/bolsa.jpg' %}"
+                     alt="{{ produto.nome }}">
+            {% elif produto.id == 5 %}
+                <img class="imagem-produto"
+                     src="{% static 'img/produtos/pente.png' %}"
+                     alt="{{ produto.nome }}">
+            {% elif produto.imagem %}
+                <img class="imagem-produto"
+                     src="{{ produto.imagem.url }}"
+                     alt="{{ produto.nome }}">
+            {% endif %}
+        </div>
+
+        <section class="informacoes">
+            <h1>{{ produto.nome }}</h1>
+
+            <p class="descricao">
+                {% if produto.descricao %}
+                    {{ produto.descricao }}
+                {% else %}
+                    Peça artesanal feita à mão, com acabamento cuidadoso
+                    e detalhes que valorizam a cultura brasileira.
+                {% endif %}
+                Cada peça tem características próprias e representa
+                o trabalho manual dos artesãos da Região Sul.
+            </p>
+
+            <p class="preco">
+                R$ {{ produto.preco|floatformat:2 }}
+            </p>
+
+            <p class="local">
+                <i class="bi bi-geo-alt"></i>
+                {{ produto.cidade }} - {{ produto.estado }}
+                · Região {{ produto.regiao }}
+            </p>
+
+            <a href="{% url 'produtos:produtos_sul' %}"
+               class="botao-voltar">
+                <i class="bi bi-arrow-left"></i>
+                Voltar para a Região Sul
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ARTESÃ E CONTATOS -->
+    <section class="informacoes-adicionais">
+
+        <div class="caixa-informacao">
+            <h2>
+                <i class="bi bi-person-circle"></i>
+                Conheça a artesã
+            </h2>
+
+            <p>
+                <strong>Nome:</strong> {{ produto.artesao }}
+            </p>
+
+            <p>
+                <i class="bi bi-geo-alt"></i>
+                <strong>Localização:</strong>
+                {{ produto.cidade }} - {{ produto.estado }}
+            </p>
+
+            <p>
+                O trabalho artesanal valoriza a criatividade,
+                a cultura regional e a produção feita à mão.
+            </p>
+        </div>
+
+        <div class="caixa-informacao">
+            <h2>
+                <i class="bi bi-shop"></i>
+                Contato da loja
+            </h2>
+
+            <p>
+                <i class="bi bi-instagram"></i>
+                <strong>Instagram:</strong>
+                @loja.artesanal
+            </p>
+
+            <p>
+                <i class="bi bi-envelope"></i>
+                <strong>E-mail:</strong>
+                contato@lojaartesanal.com
+            </p>
+
+            <p>
+                <i class="bi bi-telephone"></i>
+                <strong>Telefone:</strong>
+                (41) 99999-9999
+            </p>
+
+            <p>
+                <i class="bi bi-geo-alt"></i>
+                <strong>Endereço:</strong>
+                Curitiba - PR
+            </p>
+
+            <p>
+                <i class="bi bi-info-circle"></i>
+                Os contatos são ilustrativos e devem ser substituídos
+                pelos dados definidos para o projeto.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <h3>Raízes do Brasil</h3>
+        <p>Artesanato brasileiro, histórias reais.</p>
+        <p>&copy; 2026 Raízes do Brasil • Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
+```
