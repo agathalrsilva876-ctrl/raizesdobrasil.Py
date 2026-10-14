@@ -1,49 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     {% load static %}
 
-    <title>Produto cadastrado com sucesso!</title>
 
-    <link rel="stylesheet" href="{% static 'produtos/cadastro_sucesso.css' %}">
 </head>
-
 <body>
-
-    <main class="sucesso-container">
-
-        <div class="icone-sucesso">✓</div>
 
         <h1>Produto cadastrado com sucesso!</h1>
 
         <p>
-            Seu produto foi adicionado à loja
             <strong>{{ artesao.nome_loja }}</strong>.
         </p>
 
-        <p class="mensagem-secundaria">
-            O que deseja fazer agora?
-        </p>
-
-        <div class="botoes">
-
-            <a
-                href="{% url 'produtos:cadastrar' artesao_id=artesao.id %}"
-                class="botao principal">
                 Cadastrar outro produto
             </a>
-
-            <a
-                href="{% url 'core:home' %}"
-                class="botao secundario">
-                Voltar para a página inicial
-            </a>
-
-        </div>
-
-    </main>
 
 </body>
 </html>
