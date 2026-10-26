@@ -89,13 +89,16 @@ body {
 }
 
 .cabecalho-sul h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 46px;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 12px;
 }
 
 .cabecalho-sul p {
+    font-family: 'Poppins', sans-serif;
     font-size: 17px;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -111,9 +114,10 @@ body {
 }
 
 .pagina-produtos h2 {
+    font-family: 'Playfair Display', serif;
     text-align: center;
     font-size: 28px;
-    font-weight: normal;
+    font-weight: 600;
     margin-bottom: 35px;
     color: #1C351F;
 }
@@ -224,29 +228,21 @@ body {
    BOTÃO SAIBA MAIS
 ============================== */
 
-
-/* Botão Saiba mais */
-
 .botao-saiba-mais {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-
     width: fit-content;
     margin-top: 12px;
     padding: 9px 16px;
-
     background-color: #7186B3;
     color: #FFFFFF;
-
     text-decoration: none;
     border: 1px solid #7186B3;
     border-radius: 20px;
-
     font-size: 13px;
     font-weight: bold;
-
     transition: all 0.25s ease;
 }
 
@@ -267,7 +263,7 @@ body {
 }
 
 
-/* Evita sublinhados azuis nos textos */
+/* EVITA SUBLINHADOS NOS TEXTOS */
 
 .card-produto h3,
 .card-produto p {

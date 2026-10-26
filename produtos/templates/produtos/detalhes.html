@@ -255,14 +255,7 @@
         </ul>
     </nav>
 
-    <!-- CAMINHO -->
-    <div class="caminho">
-        <a href="{% url 'core:home' %}">Home</a>
-        &gt;
-        <a href="{% url 'produtos:produtos_sul' %}">Região Sul</a>
-        &gt;
-        {{ produto.nome }}
-    </div>
+
 
     <!-- DETALHES DO PRODUTO -->
     <main class="detalhes">
@@ -331,27 +324,7 @@
     <!-- ARTESÃ E CONTATOS -->
     <section class="informacoes-adicionais">
 
-        <div class="caixa-informacao">
-            <h2>
-                <i class="bi bi-person-circle"></i>
-                Conheça a artesã
-            </h2>
 
-            <p>
-                <strong>Nome:</strong> {{ produto.artesao }}
-            </p>
-
-            <p>
-                <i class="bi bi-geo-alt"></i>
-                <strong>Localização:</strong>
-                {{ produto.cidade }} - {{ produto.estado }}
-            </p>
-
-            <p>
-                O trabalho artesanal valoriza a criatividade,
-                a cultura regional e a produção feita à mão.
-            </p>
-        </div>
 
         <div class="caixa-informacao">
             <h2>
