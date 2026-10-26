@@ -96,11 +96,17 @@
             <img src="{% static 'img/home/centro oeste.png' %}"
                  alt="Região Centro-Oeste">
 
-            <img src="{% static 'img/home/sudeste.png' %}"
-                 alt="Região Sudeste">
 
-            <img src="{% static 'img/home/sul.png' %}"
+            <a href="{% url 'produtos:produtos_sudeste' %}">
+            <img src="{% static 'img/home/sudeste.png' %}"
+         alt="Região Sudeste">
+        </a>
+
+
+           <a href="{% url 'produtos:produtos_sul' %}">
+               <img src="{% static 'img/home/sul.png' %}"
                  alt="Região Sul">
+           </a>
 
         </div>
 
