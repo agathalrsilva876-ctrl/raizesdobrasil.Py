@@ -58,3 +58,21 @@ def produto_cadastrado(request, artesao_id):
             'artesao': artesao
         }
     )
+
+def produtos_sul(request):
+    produtos = Produto.objects.filter(regiao='Sul')
+    return render(request, 'produtos/sul.html', {'produtos': produtos})
+
+
+def produtos_sudeste(request):
+    produtos = Produto.objects.filter(regiao='Sudeste')
+    return render(request, 'produtos/sudeste.html', {'produtos': produtos})
+
+
+def detalhes_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
+    return render(
+        request,
+        'produtos/detalhes.html',
+        {'produto': produto}
+    )
