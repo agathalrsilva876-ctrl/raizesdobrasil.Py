@@ -68,6 +68,10 @@ def produtos_sudeste(request):
     produtos = Produto.objects.filter(regiao='Sudeste')
     return render(request, 'produtos/sudeste.html', {'produtos': produtos})
 
+def produtos_norte(request):
+    produtos = Produto.objects.filter(regiao='Norte')
+    return render(request,'produtos/norte.html',{'produtos': produtos})
+
 
 def detalhes_produto(request, produto_id):
     produto = get_object_or_404(Produto, id=produto_id)
