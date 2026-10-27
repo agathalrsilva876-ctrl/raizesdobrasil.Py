@@ -19,142 +19,199 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
     <link rel="stylesheet"
           href="{% static 'css/produtos_sudeste.css' %}">
 </head>
 
 <body>
 
-<!-- MENU -->
+    <!-- MENU -->
+    <nav class="menu">
 
-<nav class="menu">
+        <a href="{% url 'core:home' %}" class="logo">
+            Raízes <span>do Brasil</span>
+        </a>
 
-    <div class="logo">
-        <p>Raízes <span>do Brasil</span></p>
-    </div>
+        <ul>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i>
+                    Home
+                </a>
+            </li>
 
-    <ul>
-        <li>
-            <a href="{% url 'core:home' %}">
-                <i class="bi bi-house"></i>
-                <span>Home</span>
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'artesaos:regioes' %}">
+                    <i class="bi bi-globe-americas"></i>
+                    Regiões
+                </a>
+            </li>
 
-        <li>
-            <a href="{% url 'artesaos:regioes' %}">
-                <i class="bi bi-globe-americas"></i>
-                <span>Regiões</span>
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i>
+                    Sobre
+                </a>
+            </li>
 
-        <li>
-            <a href="{% url 'core:quem_somos' %}">
-                <i class="bi bi-bookmark"></i>
-                <span>Sobre</span>
-            </a>
-        </li>
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    Entrar
+                </a>
+            </li>
+        </ul>
 
-        <li>
-            <a href="#">
-                <i class="bi bi-person-circle"></i>
-                <span>Entrar</span>
-            </a>
-        </li>
-    </ul>
+    </nav>
 
-</nav>
+    <!-- CABEÇALHO -->
+    <section class="cabecalho-sudeste">
 
+        <h1>Sudeste</h1>
 
-<!-- CABEÇALHO -->
+        <p>
+            Conheça os produtos artesanais da Região Sudeste do Brasil.
+        </p>
 
-<section class="cabecalho-sudeste">
+    </section>
 
-    <h1>Sudeste</h1>
-
-    <p>
-        Conheça os produtos artesanais da Região Sudeste do Brasil.
-    </p>
-
-</section>
-
+    <!-- PRODUTOS -->
 
 <!-- PRODUTOS -->
 
+<!-- PRODUTOS -->
 <main class="pagina-produtos">
 
     <h2>Produtos da Região Sudeste</h2>
 
     <div class="lista-produtos">
 
-        {% for produto in produtos %}
-
+        <!-- PRODUTO 1: SOL -->
         <div class="card-produto">
-
-            {% if produto.imagem %}
-            <img src="{{ produto.imagem.url }}"
-                 alt="{{ produto.nome }}">
-            {% endif %}
+            <img src="{% static 'img/produtos/sol.jpg' %}"
+                 alt="Artesanato de sol">
 
             <div class="info-produto">
+                <h3>Sol artesanal</h3>
+                <p class="descricao">Peça decorativa feita artesanalmente.</p>
+                <p class="preco">R$ 45,00</p>
+                <p class="artesao">Artesão: Ana</p>
+                <p class="local">Rio de Janeiro - RJ</p>
 
-                <h3>{{ produto.nome }}</h3>
-
-                <p class="descricao">
-                    {{ produto.descricao }}
-                </p>
-
-                <p class="preco">
-                    R$ {{ produto.preco }}
-                </p>
-
-                <p class="artesao">
-                    Artesão: {{ produto.artesao }}
-                </p>
-
-                <p class="local">
-                    {{ produto.cidade }} - {{ produto.estado }}
-                </p>
-
-                <a href="{% url 'produtos:detalhes_produto' produto.id %}"
-                   class="botao-saiba-mais">
-                    Saiba mais
-                    <i class="bi bi-arrow-right"></i>
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
                 </a>
-
             </div>
-
         </div>
 
-        {% empty %}
+        <!-- PRODUTO 2: PÁSSAROS -->
+        <div class="card-produto">
+            <img src="{% static 'img/produtos/passaros.jpg' %}"
+                 alt="Artesanato de pássaros">
 
-        <p class="mensagem-vazia">
-            Nenhum produto cadastrado nesta região ainda.
-        </p>
+            <div class="info-produto">
+                <h3>Pássaros decorativos</h3>
+                <p class="descricao">Peças artesanais inspiradas na natureza.</p>
+                <p class="preco">R$ 35,00</p>
+                <p class="artesao">Artesão: João</p>
+                <p class="local">Minas Gerais - MG</p>
 
-        {% endfor %}
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO 3: BRINCOS -->
+        <div class="card-produto">
+            <img src="{% static 'img/produtos/brincos.jpg' %}"
+                 alt="Brincos artesanais">
+
+            <div class="info-produto">
+                <h3>Brincos artesanais</h3>
+                <p class="descricao">Acessórios artesanais para complementar o visual.</p>
+                <p class="preco">R$ 28,00</p>
+                <p class="artesao">Artesão: Maria</p>
+                <p class="local">São Paulo - SP</p>
+
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO 4: COLAR -->
+        <div class="card-produto">
+            <img src="{% static 'img/produtos/colar.jpg' %}"
+                 alt="Colar artesanal">
+
+            <div class="info-produto">
+                <h3>Colar artesanal</h3>
+                <p class="descricao">Acessório produzido artesanalmente.</p>
+                <p class="preco">R$ 32,00</p>
+                <p class="artesao">Artesão: Carla</p>
+                <p class="local">Espírito Santo - ES</p>
+
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO 5: BANDEIRAS DECORADAS -->
+        <div class="card-produto">
+            <img src="{% static 'img/produtos/bandeiras decoradas.jpg' %}"
+                 alt="Bandeiras decoradas artesanalmente">
+
+            <div class="info-produto">
+                <h3>Bandeiras decoradas</h3>
+                <p class="descricao">Decoração artesanal colorida.</p>
+                <p class="preco">R$ 40,00</p>
+                <p class="artesao">Artesão: Pedro</p>
+                <p class="local">Rio de Janeiro - RJ</p>
+
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO 6: MADEIRA -->
+        <div class="card-produto">
+            <img src="{% static 'img/produtos/madeira.jpg' %}"
+                 alt="Artesanato em madeira">
+
+            <div class="info-produto">
+                <h3>Peça em madeira</h3>
+                <p class="descricao">Objeto decorativo feito em madeira.</p>
+                <p class="preco">R$ 50,00</p>
+                <p class="artesao">Artesão: Lucas</p>
+                <p class="local">Minas Gerais - MG</p>
+
+                <a href="#" class="botao-saiba-mais">
+                    Saiba mais <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
 
     </div>
 
 </main>
 
 
-<!-- RODAPÉ -->
 
-<footer class="footer">
+    <!-- RODAPÉ -->
+    <footer class="footer">
 
-    <p class="footer-logo">
-        Raízes <span>do Brasil</span>
-    </p>
+        <p class="footer-logo">
+            Raízes <span>do Brasil</span>
+        </p>
 
-    <p class="footer-texto">
-        &copy; 2026 Raízes do Brasil • Todos os direitos reservados
-    </p>
+        <p class="footer-texto">
+            &copy; 2026 Raízes do Brasil • Todos os direitos reservados
+        </p>
 
-</footer>
+    </footer>
 
 </body>
 </html>
