@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import Artesao
 
-# Register your models here.
+admin.site.register(Artesao)

@@ -83,17 +83,15 @@
 
     <h2>Produtos da Região Norte</h2>
 
-    <div class="lista-produtos">
+
+<div class="lista-produtos">
 
     {% for produto in produtos %}
 
         <div class="card-produto">
 
-            <!-- Imagem do produto -->
-            {% if produto.fotos.first %}
-                <img src="{{ produto.fotos.first.imagem.url }}"
-                     alt="{{ produto.nome }}">
-            {% endif %}
+            <img src="{{ produto.imagem.url }}"
+                 alt="{{ produto.nome }}">
 
             <div class="info-produto">
 
@@ -105,6 +103,14 @@
 
                 <p class="preco">
                     R$ {{ produto.preco }}
+                </p>
+
+                <p class="artesao">
+                    Artesão: {{ produto.artesao.nome }}
+                </p>
+
+                <p class="local">
+                    {{ produto.artesao.cidade }} - {{ produto.artesao.estado }}
                 </p>
 
                 <a href="{% url 'produtos:detalhes_produto' produto.id %}"
@@ -124,6 +130,7 @@
     {% endfor %}
 
 </div>
+
 
 </main>
 
