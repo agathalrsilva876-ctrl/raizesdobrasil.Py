@@ -24,43 +24,48 @@
 
 <!-- MENU -->
 
-<nav class="menu">
+<nav class="menu" id="menu">
 
-    <div class="logo">
-        <p>Raízes <span>do Brasil</span></p>
-    </div>
+        <div class="logo">
+            <p>Raízes <span>do Brasil</span></p>
+        </div>
 
-    <ul>
-        <li>
-            <a href="{% url 'core:home' %}">
-                <i class="bi bi-house"></i>
-                <span>Home</span>
-            </a>
-        </li>
+        <ul>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="{% url 'artesaos:regioes' %}">
-                <i class="bi bi-globe-americas"></i>
-                <span>Regiões</span>
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-globe-americas"></i>
+                    <span>Regiões</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="{% url 'core:quem_somos' %}">
-                <i class="bi bi-bookmark"></i>
-                <span>Sobre</span>
-            </a>
-        </li>
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="#">
-                <i class="bi bi-person-circle"></i>
-                <span>Entrar</span>
-            </a>
-        </li>
-    </ul>
+            <li>
+                <a href="{% url 'artesaos:cadastrar' %}">
+                    <i class="bi bi-shop"></i>
+                    <span>Cadastro</span>
+                </a>
+            </li>
 
-</nav>
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Entrar</span>
+                </a>
+            </li>
+    </nav>
 
 
 <!-- CABEÇALHO -->
