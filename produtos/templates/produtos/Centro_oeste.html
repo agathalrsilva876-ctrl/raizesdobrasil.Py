@@ -70,7 +70,7 @@
 
     <!-- CABEÇALHO -->
 
-    <section class="cabecalho-centro-oeste">
+    <section class="cabecalho-centro-oeste" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{% static "img/home/fundo-centro.jpg" %}'); background-size: cover; background-position: center;">
 
         <h1>Centro-Oeste</h1>
 
@@ -90,36 +90,30 @@
 
         <div class="lista-produtos">
 
-            {% for produto in produtos %}
+            <!-- PRODUTO 1 -->
 
             <div class="card-produto">
 
-                {% if produto.imagem %}
-                <img src="{{ produto.imagem.url }}"
-                     alt="{{ produto.nome }}">
-                {% endif %}
+                <img src="{% static 'img/produtos/bracelete.jpg' %}"
+                     alt="Bracelete artesanal">
 
                 <div class="info-produto">
 
-                    <h3>{{ produto.nome }}</h3>
+                    <h3>Bracelete Artesanal</h3>
 
                     <p class="descricao">
-                        {{ produto.descricao }}
+                        Bracelete artesanal produzido à mão,
+                        com detalhes que valorizam o trabalho
+                        dos artesãos da Região Centro-Oeste.
                     </p>
 
-                    <p class="preco">
-                        R$ {{ produto.preco }}
-                    </p>
+                    <p class="preco">R$ 45,00</p>
 
-                    <p class="artesao">
-                        Artesão: {{ produto.artesao }}
-                    </p>
+                    <p class="artesao">Artesã: Maria da Silva</p>
 
-                    <p class="local">
-                        {{ produto.cidade }} - {{ produto.estado }}
-                    </p>
+                    <p class="local">Goiânia - GO</p>
 
-                    <a href="{% url 'produtos:detalhes_produto' produto.id %}"
+                    <a href="#"
                        class="botao-saiba-mais">
                         Saiba mais
                         <i class="bi bi-arrow-right"></i>
@@ -129,13 +123,141 @@
 
             </div>
 
-            {% empty %}
 
-            <p class="mensagem-vazia">
-                Nenhum produto cadastrado nesta região ainda.
-            </p>
+            <!-- PRODUTO 2 -->
 
-            {% endfor %}
+            <div class="card-produto">
+
+                <img src="{% static 'img/produtos/braceleteazul.jpg' %}"
+                     alt="Bracelete azul artesanal">
+
+                <div class="info-produto">
+
+                    <h3>Bracelete Azul</h3>
+
+                    <p class="descricao">
+                        Bracelete artesanal na cor azul,
+                        produzido à mão com cuidado e
+                        acabamento delicado.
+                    </p>
+
+                    <p class="preco">R$ 50,00</p>
+
+                    <p class="artesao">Artesão: João Pereira</p>
+
+                    <p class="local">Cuiabá - MT</p>
+
+                    <a href="#"
+                       class="botao-saiba-mais">
+                        Saiba mais
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 3 -->
+
+            <div class="card-produto">
+
+                <img src="{% static 'img/produtos/pulseira.jpg' %}"
+                     alt="Pulseira artesanal">
+
+                <div class="info-produto">
+
+                    <h3>Pulseira Artesanal</h3>
+
+                    <p class="descricao">
+                        Pulseira artesanal feita à mão,
+                        valorizando peças únicas e
+                        o trabalho dos artesãos.
+                    </p>
+
+                    <p class="preco">R$ 35,00</p>
+
+                    <p class="artesao">Artesã: Ana Souza</p>
+
+                    <p class="local">Campo Grande - MS</p>
+
+                    <a href="#"
+                       class="botao-saiba-mais">
+                        Saiba mais
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 4 -->
+
+            <div class="card-produto">
+
+                <img src="{% static 'img/produtos/bolsa.jpg' %}"
+                     alt="Bolsa artesanal">
+
+                <div class="info-produto">
+
+                    <h3>Bolsa Artesanal</h3>
+
+                    <p class="descricao">
+                        Bolsa artesanal produzida à mão,
+                        com detalhes únicos e inspirada
+                        na cultura da Região Centro-Oeste.
+                    </p>
+
+                    <p class="preco">R$ 90,00</p>
+
+                    <p class="artesao">Artesã: Carla Mendes</p>
+
+                    <p class="local">Brasília - DF</p>
+
+                    <a href="#"
+                       class="botao-saiba-mais">
+                        Saiba mais
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUTO 5 -->
+
+            <div class="card-produto">
+
+                <img src="{% static 'img/produtos/pente.png' %}"
+                     alt="Pente artesanal">
+
+                <div class="info-produto">
+
+                    <h3>Pente Artesanal</h3>
+
+                    <p class="descricao">
+                        Pente artesanal feito à mão,
+                        com acabamento cuidadoso e
+                        materiais selecionados.
+                    </p>
+
+                    <p class="preco">R$ 40,00</p>
+
+                    <p class="artesao">Artesão: Lucas Martins</p>
+
+                    <p class="local">Pirenópolis - GO</p>
+
+                    <a href="#"
+                       class="botao-saiba-mais">
+                        Saiba mais
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -159,4 +281,3 @@
 </body>
 
 </html>
-```
