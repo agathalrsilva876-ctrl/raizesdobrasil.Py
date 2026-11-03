@@ -59,18 +59,13 @@
             </li>
 
             <li>
-                <a href="{% url 'artesaos:cadastrar' %}">
-                    <i class="bi bi-shop"></i>
-                    <span>Cadastro</span>
-                </a>
-            </li>
-
-            <li>
                 <a href="#">
                     <i class="bi bi-person-circle"></i>
                     <span>Entrar</span>
                 </a>
             </li>
+        </ul>
+
     </nav>
 
 
@@ -100,20 +95,15 @@
             <img src="{% static 'img/home/nordeste.png' %}"
                  alt="Região Nordeste">
 
-            <img src="{% static 'img/home/centro oeste.png' %}"
-                 alt="Região Centro-Oeste">
+           <a href="{% url 'produtos:produtos_centro_oeste' %}">
+    <img src="{% static 'img/home/centro oeste.png' %}" alt="Região Centro-Oeste">
+</a>
 
-
-            <a href="{% url 'produtos:produtos_sudeste' %}">
             <img src="{% static 'img/home/sudeste.png' %}"
-         alt="Região Sudeste">
-        </a>
+                 alt="Região Sudeste">
 
-
-           <a href="{% url 'produtos:produtos_sul' %}">
-               <img src="{% static 'img/home/sul.png' %}"
+            <img src="{% static 'img/home/sul.png' %}"
                  alt="Região Sul">
-           </a>
 
         </div>
 
