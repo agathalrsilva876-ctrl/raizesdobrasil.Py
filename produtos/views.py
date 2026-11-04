@@ -87,6 +87,11 @@ def produtos_norte(request):
 
     return render(request,'produtos/norte.html',{'produtos': produtos})
 
+def produtos_nordeste(request):
+    produtos = Produto.objects.filter(regiao='Nordeste').select_related('artesao')
+
+    return render(request, 'produtos/nordeste.html', {'produtos': produtos})
+
 
 def produtos_centro_oeste(request):
     produtos = Produto.objects.filter(regiao='Centro-Oeste')
