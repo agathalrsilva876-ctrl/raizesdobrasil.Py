@@ -94,7 +94,7 @@ def produtos_nordeste(request):
 
 
 def produtos_centro_oeste(request):
-    produtos = Produto.objects.filter(regiao='Centro-Oeste')
+    produtos = Produto.objects.filter(regiao='centro-Oeste').select_related('artesao')
     return render(request, 'produtos/Centro_oeste.html', {'produtos': produtos})
 
 
