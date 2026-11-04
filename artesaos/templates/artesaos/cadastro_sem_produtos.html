@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+
+    <title>Loja cadastrada</title>
+
+    <link rel="stylesheet" href="{% static 'artesaos/cadastro_sucesso.css' %}">
+</head>
+
+<body>
+
+    <main class="sucesso-container">
+
+        <div class="icone-sucesso">
+            ✓
+        </div>
+
+        <h1>Loja cadastrada com sucesso!</h1>
+
+        <p class="mensagem-principal">
+            Sua loja <strong>{{ artesao.nome_loja }}</strong> já foi cadastrada.
+        </p>
+
+        <div class="aviso">
+
+            <h2>Ainda não há produtos cadastrados.</h2>
+
+            <p>
+                Você poderá cadastrar os produtos da sua loja
+                quando quiser.
+            </p>
+
+        </div>
+
+        <a href="/" class="botao principal">
+            Voltar para página inicial
+        </a>
+
+    </main>
+
+</body>
+
+</html>

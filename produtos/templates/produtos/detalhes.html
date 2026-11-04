@@ -261,109 +261,131 @@
     <main class="detalhes">
 
         <div class="area-imagem">
-            {% if produto.id == 1 %}
-                <img class="imagem-produto"
-                     src="{% static 'img/produtos/bracelete.jpg' %}"
-                     alt="{{ produto.nome }}">
-            {% elif produto.id == 2 %}
-                <img class="imagem-produto"
-                     src="{% static 'img/produtos/braceleteazul.jpg' %}"
-                     alt="{{ produto.nome }}">
-            {% elif produto.id == 3 %}
-                <img class="imagem-produto"
-                     src="{% static 'img/produtos/pulseira.jpg' %}"
-                     alt="{{ produto.nome }}">
-            {% elif produto.id == 4 %}
-                <img class="imagem-produto"
-                     src="{% static 'img/produtos/bolsa.jpg' %}"
-                     alt="{{ produto.nome }}">
-            {% elif produto.id == 5 %}
-                <img class="imagem-produto"
-                     src="{% static 'img/produtos/pente.png' %}"
-                     alt="{{ produto.nome }}">
-            {% elif produto.imagem %}
-                <img class="imagem-produto"
-                     src="{{ produto.imagem.url }}"
-                     alt="{{ produto.nome }}">
-            {% endif %}
-        </div>
 
-        <section class="informacoes">
-            <h1>{{ produto.nome }}</h1>
+    {% if produto.imagem %}
+        <img class="imagem-produto"
+             src="{{ produto.imagem.url }}"
+             alt="{{ produto.nome }}">
+    {% else %}
+        <p>Imagem não disponível.</p>
+    {% endif %}
 
-            <p class="descricao">
-                {% if produto.descricao %}
-                    {{ produto.descricao }}
-                {% else %}
-                    Peça artesanal feita à mão, com acabamento cuidadoso
-                    e detalhes que valorizam a cultura brasileira.
-                {% endif %}
-                Cada peça tem características próprias e representa
-                o trabalho manual dos artesãos da Região Sul.
-            </p>
+</div>
 
-            <p class="preco">
-                R$ {{ produto.preco|floatformat:2 }}
-            </p>
+       <section class="informacoes">
 
-            <p class="local">
-                <i class="bi bi-geo-alt"></i>
-                {{ produto.cidade }} - {{ produto.estado }}
-                · Região {{ produto.regiao }}
-            </p>
+    <h1>{{ produto.nome }}</h1>
 
-            <a href="{% url 'produtos:produtos_sul' %}"
-               class="botao-voltar">
-                <i class="bi bi-arrow-left"></i>
-                Voltar para a Região Sul
-            </a>
-        </section>
+    <p class="descricao">
+        {{ produto.descricao }}
+    </p>
+
+    <p class="preco">
+        R$ {{ produto.preco|floatformat:2 }}
+    </p>
+
+    <p class="local">
+        <i class="bi bi-geo-alt"></i>
+        {{ produto.cidade }} - {{ produto.estado }}
+        · Região {{ produto.regiao }}
+    </p>
+
+    {% if produto.regiao == 'Norte' %}
+        <a href="{% url 'produtos:produtos_norte' %}"
+           class="botao-voltar">
+            <i class="bi bi-arrow-left"></i>
+            Voltar para a Região Norte
+        </a>
+
+    {% elif produto.regiao == 'Sul' %}
+        <a href="{% url 'produtos:produtos_sul' %}"
+           class="botao-voltar">
+            <i class="bi bi-arrow-left"></i>
+            Voltar para a Região Sul
+        </a>
+
+    {% elif produto.regiao == 'Sudeste' %}
+        <a href="{% url 'produtos:produtos_sudeste' %}"
+           class="botao-voltar">
+            <i class="bi bi-arrow-left"></i>
+            Voltar para a Região Sudeste
+        </a>
+
+    {% else %}
+        <a href="{% url 'artesaos:regioes' %}"
+           class="botao-voltar">
+            <i class="bi bi-arrow-left"></i>
+            Voltar para as regiões
+        </a>
+    {% endif %}
+
+</section>
 
     </main>
 
     <!-- ARTESÃ E CONTATOS -->
     <section class="informacoes-adicionais">
 
+    <div class="caixa-informacao">
 
+        <h2>
+            <i class="bi bi-person-circle"></i>
+            Sobre o artesão
+        </h2>
 
-        <div class="caixa-informacao">
-            <h2>
-                <i class="bi bi-shop"></i>
-                Contato da loja
-            </h2>
+        <p>
+            <strong>Nome:</strong>
+            {{ produto.artesao.nome }}
+        </p>
 
+        <p>
+            <strong>Nome da loja:</strong>
+            {{ produto.artesao.nome_loja }}
+        </p>
+
+        <p>
+            <strong>Sobre o artesão:</strong>
+            {{ produto.artesao.descricao }}
+        </p>
+
+        <p>
+            <i class="bi bi-geo-alt"></i>
+            <strong>Localização:</strong>
+            {{ produto.artesao.cidade }} -
+            {{ produto.artesao.estado }}
+        </p>
+
+    </div>
+
+    <div class="caixa-informacao">
+
+        <h2>
+            <i class="bi bi-shop"></i>
+            Contato da loja
+        </h2>
+
+        <p>
+            <i class="bi bi-telephone"></i>
+            <strong>Telefone:</strong>
+            {{ produto.artesao.telefone }}
+        </p>
+
+        {% if produto.artesao.instagram %}
             <p>
                 <i class="bi bi-instagram"></i>
                 <strong>Instagram:</strong>
-                @loja.artesanal
+                <a class="contato"
+                   href="https://www.instagram.com/{{ produto.artesao.instagram|cut:'@' }}/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    {{ produto.artesao.instagram }}
+                </a>
             </p>
+        {% endif %}
 
-            <p>
-                <i class="bi bi-envelope"></i>
-                <strong>E-mail:</strong>
-                contato@lojaartesanal.com
-            </p>
+    </div>
 
-            <p>
-                <i class="bi bi-telephone"></i>
-                <strong>Telefone:</strong>
-                (41) 99999-9999
-            </p>
-
-            <p>
-                <i class="bi bi-geo-alt"></i>
-                <strong>Endereço:</strong>
-                Curitiba - PR
-            </p>
-
-            <p>
-                <i class="bi bi-info-circle"></i>
-                Os contatos são ilustrativos e devem ser substituídos
-                pelos dados definidos para o projeto.
-            </p>
-        </div>
-
-    </section>
+</section>
 
     <!-- RODAPÉ -->
     <footer class="rodape">

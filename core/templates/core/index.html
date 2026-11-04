@@ -45,7 +45,7 @@
             </li>
 
             <li>
-                <a href="{% url 'artesaos:regioes' %}">
+                <a href="#regioes">
                     <i class="bi bi-globe-americas"></i>
                     <span>Regiões</span>
                 </a>
@@ -87,26 +87,25 @@
 
         <div class="galeria">
 
+            <a href="{% url 'produtos:produtos_norte' %}">
             <img src="{% static 'img/home/norte.png' %}"
                  alt="Região Norte">
+                </a>
 
+            <a href="{% url 'produtos:produtos_nordeste' %}">
             <img src="{% static 'img/home/nordeste.png' %}"
                  alt="Região Nordeste">
+                </a>
 
-            <img src="{% static 'img/home/centro oeste.png' %}"
-                 alt="Região Centro-Oeste">
+           <a href="{% url 'produtos:produtos_centro_oeste' %}">
+    <img src="{% static 'img/home/centro oeste.png' %}" alt="Região Centro-Oeste">
+</a>
 
-
-            <a href="{% url 'produtos:produtos_sudeste' %}">
             <img src="{% static 'img/home/sudeste.png' %}"
-         alt="Região Sudeste">
-        </a>
+                 alt="Região Sudeste">
 
-
-           <a href="{% url 'produtos:produtos_sul' %}">
-               <img src="{% static 'img/home/sul.png' %}"
+            <img src="{% static 'img/home/sul.png' %}"
                  alt="Região Sul">
-           </a>
 
         </div>
 

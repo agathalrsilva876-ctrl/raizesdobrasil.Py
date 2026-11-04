@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf5;
+    color: #4a3025;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+.sucesso-container {
+    width: 100%;
+    max-width: 650px;
+
+    background-color: #ffffff;
+
+    padding: 45px 40px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 30px rgba(100, 60, 40, 0.12);
+}
+
+.icone-sucesso {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background-color: #e7f3df;
+    color: #5d8a4a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #8b3f2f;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.mensagem-principal {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sucesso-container > p {
+    color: #795548;
+    line-height: 1.6;
+}
+
+.divisao {
+    width: 80px;
+    height: 2px;
+
+    background-color: #d9b9a7;
+
+    margin: 28px auto;
+}
+
+h2 {
+    color: #684033;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.mensagem-secundaria {
+    color: #795548;
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.botao {
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.botao.principal {
+    background-color: #a94f3b;
+    color: white;
+}
+
+.botao.principal:hover {
+    background-color: #873d2e;
+    transform: translateY(-2px);
+}
+
+.botao.secundario {
+    background-color: #f4e4d8;
+    color: #7b4938;
+}
+
+.botao.secundario:hover {
+    background-color: #ead3c3;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+
+    .sucesso-container {
+        padding: 35px 25px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botao {
+        width: 100%;
+    }
+}
