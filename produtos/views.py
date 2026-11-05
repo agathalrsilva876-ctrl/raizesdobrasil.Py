@@ -1,15 +1,15 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProdutoForm
 from .models import Produto, FotoProduto
 from artesaos.models import Artesao
 
 
+
 def cadastrar_produto(request, artesao_id):
     artesao = get_object_or_404(Artesao, id=artesao_id)
 
     if request.method == 'POST':
-        form = ProdutoForm(request.POST, request.FILES)
+        form = ProdutoForm(request.POST)
         imagens = request.FILES.getlist('imagens')
 
         if form.is_valid():
@@ -28,8 +28,13 @@ def cadastrar_produto(request, artesao_id):
 
             else:
                 produto = form.save(commit=False)
+
                 produto.artesao = artesao
+                produto.cidade = artesao.cidade
+                produto.estado = artesao.estado
+                produto.regiao = artesao.regiao
                 produto.imagem = imagens[0]
+
                 produto.save()
 
                 for imagem in imagens[1:]:
@@ -56,58 +61,41 @@ def cadastrar_produto(request, artesao_id):
     )
 
 
+
 def produto_cadastrado(request, artesao_id):
     artesao = get_object_or_404(Artesao, id=artesao_id)
 
     return render(
         request,
         'produtos/cadastro_sucesso.html',
-        {'artesao': artesao}
+        {
+            'artesao': artesao
+        }
     )
 
-
 def produtos_sul(request):
-    produtos = Produto.objects.filter(
-        artesao__regiao='Sul'
-    ).select_related('artesao')
-
+    produtos = Produto.objects.filter(regiao='Sul')
     return render(request, 'produtos/sul.html', {'produtos': produtos})
 
 
 def produtos_sudeste(request):
-    produtos = Produto.objects.filter(
-        artesao__regiao='Sudeste'
-    ).select_related('artesao')
-
+    produtos = Produto.objects.filter(regiao='Sudeste')
     return render(request, 'produtos/sudeste.html', {'produtos': produtos})
 
-
 def produtos_norte(request):
-    produtos = Produto.objects.filter(
-        artesao__regiao='Norte'
-    ).select_related('artesao')
+    produtos = Produto.objects.filter(regiao='Norte').select_related('artesao')
 
-    return render(request, 'produtos/norte.html', {'produtos': produtos})
-
+    return render(request,'produtos/norte.html',{'produtos': produtos})
 
 def produtos_nordeste(request):
-    produtos = Produto.objects.filter(
-        artesao__regiao='Nordeste'
-    ).select_related('artesao')
+    produtos = Produto.objects.filter(regiao='Nordeste').select_related('artesao')
 
     return render(request, 'produtos/nordeste.html', {'produtos': produtos})
 
 
 def produtos_centro_oeste(request):
-    produtos = Produto.objects.filter(
-        artesao__regiao='Centro-Oeste'
-    ).select_related('artesao')
-
-    return render(
-        request,
-        'produtos/Centro_oeste.html',
-        {'produtos': produtos}
-    )
+    produtos = Produto.objects.filter(regiao='Centro-Oeste')
+    return render(request, 'produtos/Centro_oeste.html', {'produtos': produtos})
 
 
 def detalhes_produto(request, produto_id):
