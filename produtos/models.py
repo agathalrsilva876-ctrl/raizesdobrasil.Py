@@ -13,6 +13,9 @@ class Produto(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.TextField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
+    cidade = models.CharField(max_length=100)
+    estado = models.CharField(max_length=2)
+    regiao = models.CharField(max_length=50)
     imagem = models.ImageField(upload_to='produtos/')
 
     def __str__(self):
