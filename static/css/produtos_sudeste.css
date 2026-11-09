@@ -1,5 +1,7 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
 
-/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
@@ -12,28 +14,31 @@ body {
     color: #23415F;
 }
 
-/* MENU */
+
+/* ==============================
+   MENU
+============================== */
+
 .menu {
     width: 100%;
-    min-height: 65px;
+    min-height: 55px;
     background-color: #3d5d98;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 5%;
-    gap: 20px;
+    padding: 10px 30px;
 }
 
-.logo {
+.menu .logo p {
+    margin: 0;
     color: white;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 25px;
     font-weight: 700;
-    text-decoration: none;
     white-space: nowrap;
 }
 
-.logo span {
+.menu .logo span {
     color: #EAF2FC;
 }
 
@@ -50,101 +55,132 @@ body {
     color: white;
     text-decoration: none;
     font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    transition: 0.2s;
 }
 
 .menu ul li a:hover {
     color: #DCE8F8;
 }
 
-/* CABEÇALHO */
+.menu ul li a i {
+    margin-right: 4px;
+}
+
+
+/* ==============================
+   CABEÇALHO DA REGIÃO SUDESTE
+============================== */
+
 .cabecalho-sudeste {
     width: 100%;
-    height: 280px;
-    margin: 0;
-    padding: 25px;
-
+    min-height: 260px;
     background-image:
         linear-gradient(
             rgba(12, 40, 75, 0.25),
             rgba(12, 40, 75, 0.25)
         ),
         url("../img/home/fundosudeste.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     text-align: center;
     color: white;
+    padding: 30px 20px;
 }
 
-/* ÁREA DOS PRODUTOS */
+.cabecalho-sudeste h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cabecalho-sudeste p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+/* ==============================
+   ÁREA DOS PRODUTOS
+============================== */
+
 .pagina-produtos {
     width: 100%;
-    min-height: 400px;
-    padding: 35px 30px 50px;
+    padding: 45px 25px;
     background-color: #EAF2FC;
 }
 
 .pagina-produtos h2 {
     font-family: 'Playfair Display', serif;
-    color: #23415F;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
-    text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    color: #23415F;
 }
 
-/* GRADE DE PRODUTOS */
+
+/* ==============================
+   GRADE DE CARTÕES
+============================== */
+
 .lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 18px;
     align-items: stretch;
 }
 
-/* CARTÕES */
+
+/* ==============================
+   CARTÃO DO PRODUTO
+============================== */
+
 .card-produto {
     min-width: 0;
     background-color: #DCE8F8;
     border: 1px solid #C1D5EF;
     border-radius: 13px;
     overflow: hidden;
-
+    box-shadow: 0 3px 8px rgba(35, 65, 95, 0.10);
     display: flex;
     flex-direction: column;
-
+    color: #23415F;
+    text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-produto:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 14px rgba(35, 65, 95, 0.12);
+    box-shadow: 0 5px 12px rgba(35, 65, 95, 0.15);
 }
 
-/* IMAGENS DOS PRODUTOS */
-.card-produto > img {
+
+/* IMAGEM DO PRODUTO */
+
+.card-produto img {
     width: 100%;
-    height: 160px;
+    height: 170px;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
+
 /* CASO O PRODUTO NÃO TENHA IMAGEM */
+
 .sem-imagem {
-    height: 160px;
+    height: 170px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,71 +198,108 @@ body {
     margin-top: 5px;
 }
 
-/* INFORMAÇÕES */
+
+/* INFORMAÇÕES DO PRODUTO */
+
 .info-produto {
-    padding: 15px;
+    padding: 15px 13px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
+    flex: 1;
 }
 
 .info-produto h3 {
     font-family: 'Playfair Display', serif;
     color: #17365D;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 600;
-    margin: 0 0 8px;
-    overflow-wrap: anywhere;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    text-decoration: none;
 }
 
 .info-produto .descricao {
     color: #456586;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
-    margin: 0 0 12px;
-    overflow-wrap: anywhere;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
 
 .info-produto .preco {
     color: #0B4FA3;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
-    margin: 0 0 10px;
+    margin-top: auto;
+    margin-bottom: 12px;
+    text-decoration: none;
 }
 
-.info-produto .artesao,
+.info-produto .artesao {
+    color: #456586;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
 .info-produto .local {
     color: #456586;
-    font-size: 12px;
-    margin: 0 0 7px;
-    overflow-wrap: anywhere;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-decoration: none;
 }
 
-/* BOTÃO SAIBA MAIS */
+
+/* ==============================
+   BOTÃO SAIBA MAIS
+============================== */
+
 .botao-saiba-mais {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-
+    gap: 10px;
+    width: fit-content;
+    margin-top: 12px;
+    padding: 9px 16px;
     background-color: #718FBD;
     color: white;
     text-decoration: none;
-    font-size: 13px;
-    padding: 10px 14px;
+    border: 1px solid #718FBD;
     border-radius: 20px;
-    margin-top: auto;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
 
-    transition: background-color 0.3s;
+.botao-saiba-mais i {
+    font-size: 14px;
+    transition: transform 0.25s ease;
 }
 
 .botao-saiba-mais:hover {
     background-color: #31577F;
+    border-color: #31577F;
     color: white;
+    text-decoration: none;
 }
 
+.botao-saiba-mais:hover i {
+    transform: translateX(4px);
+}
+
+
+/* EVITA SUBLINHADOS NOS TEXTOS */
+
+.card-produto h3,
+.card-produto p {
+    text-decoration: none;
+}
+
+
 /* MENSAGEM SEM PRODUTOS */
+
 .mensagem-vazia {
     grid-column: 1 / -1;
     text-align: center;
@@ -235,20 +308,25 @@ body {
     padding: 30px 10px;
 }
 
-/* RODAPÉ */
+
+/* ==============================
+   RODAPÉ
+============================== */
+
 .footer {
     width: 100%;
     background-color: #7F9BC5;
     color: white;
     text-align: center;
-    padding: 22px 15px;
+    padding: 25px 15px;
 }
 
 .footer-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0 0 8px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
 }
 
 .footer-logo span {
@@ -256,22 +334,26 @@ body {
 }
 
 .footer-texto {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0;
 }
 
-/* TELAS MÉDIAS */
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
 @media (max-width: 1100px) {
     .lista-produtos {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-/* TABLETS */
 @media (max-width: 750px) {
     .menu {
         flex-direction: column;
-        justify-content: center;
+        gap: 12px;
+        padding: 15px;
     }
 
     .menu ul {
@@ -280,62 +362,30 @@ body {
         gap: 15px;
     }
 
+    .lista-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .cabecalho-sudeste {
-        width: 100%;
-        height: 230px;
+        min-height: 220px;
     }
 
     .cabecalho-sudeste h1 {
-        font-size: 40px;
-    }
-
-    .pagina-produtos {
-        padding: 30px 20px 40px;
-    }
-
-    .pagina-produtos h2 {
-        font-size: 24px;
-    }
-
-    .lista-produtos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
+        font-size: 36px;
     }
 }
 
-/* CELULARES */
 @media (max-width: 480px) {
-    .logo {
-        font-size: 22px;
-    }
-
-    .menu ul {
-        gap: 12px;
-    }
-
-    .menu ul li a {
-        font-size: 12px;
-    }
-
-    .cabecalho-sudeste {
-        height: 200px;
-        padding: 15px;
-    }
-
-    .cabecalho-sudeste h1 {
-        font-size: 34px;
-    }
-
-    .cabecalho-sudeste p {
-        font-size: 13px;
+    .pagina-produtos {
+        padding: 30px 15px;
     }
 
     .lista-produtos {
         grid-template-columns: 1fr;
-        max-width: 320px;
     }
 
-    .pagina-produtos h2 {
-        font-size: 22px;
+    .card-produto img,
+    .sem-imagem {
+        height: 220px;
     }
 }
