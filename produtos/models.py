@@ -7,7 +7,9 @@ class Produto(models.Model):
     artesao = models.ForeignKey(
         Artesao,
         on_delete=models.CASCADE,
-        related_name='produtos'
+        related_name='produtos',
+        null=True,
+        blank=True
     )
 
     nome = models.CharField(max_length=100)
