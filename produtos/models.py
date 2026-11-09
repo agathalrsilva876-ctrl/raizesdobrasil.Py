@@ -9,6 +9,7 @@ class Produto(models.Model):
         on_delete=models.CASCADE,
         related_name='produtos'
     )
+
     nome = models.CharField(max_length=100)
     descricao = models.TextField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
@@ -27,6 +28,7 @@ class FotoProduto(models.Model):
         on_delete=models.CASCADE,
         related_name='fotos'
     )
+
     imagem = models.ImageField(upload_to='produtos/')
 
     def __str__(self):

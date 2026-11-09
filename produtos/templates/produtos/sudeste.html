@@ -1,7 +1,6 @@
-
+<!DOCTYPE html>
 {% load static %}
 
-<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -9,12 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Raízes do Brasil | Sudeste</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
-          rel="stylesheet">
 
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -30,7 +23,7 @@
 
 <!-- MENU -->
 
-<nav class="menu">
+<nav class="menu" id="menu">
 
     <div class="logo">
         <p>Raízes <span>do Brasil</span></p>
@@ -45,7 +38,7 @@
         </li>
 
         <li>
-            <a href="{% url 'artesaos:regioes' %}">
+            <a href="{% url 'core:home' %}">
                 <i class="bi bi-globe-americas"></i>
                 <span>Regiões</span>
             </a>
@@ -55,6 +48,13 @@
             <a href="{% url 'core:quem_somos' %}">
                 <i class="bi bi-bookmark"></i>
                 <span>Sobre</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'artesaos:cadastrar' %}">
+                <i class="bi bi-shop"></i>
+                <span>Cadastro</span>
             </a>
         </li>
 
@@ -76,7 +76,8 @@
     <h1>Sudeste</h1>
 
     <p>
-        Conheça os produtos artesanais da Região Sudeste do Brasil.
+        Conheça os produtos artesanais da Região Sudeste do Brasil,
+        que representam a diversidade cultural e as tradições de seus estados.
     </p>
 
 </section>
@@ -92,48 +93,53 @@
 
         {% for produto in produtos %}
 
-        <div class="card-produto">
+            <div class="card-produto">
 
-            {% if produto.imagem %}
-            <img src="{{ produto.imagem.url }}"
-                 alt="{{ produto.nome }}">
-            {% endif %}
+                {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}"
+                         alt="{{ produto.nome }}">
+                {% else %}
+                    <div class="sem-imagem">
+                        <i class="bi bi-image"></i>
+                        <p>Imagem não disponível</p>
+                    </div>
+                {% endif %}
 
-            <div class="info-produto">
+                <div class="info-produto">
 
-                <h3>{{ produto.nome }}</h3>
+                    <h3>{{ produto.nome }}</h3>
 
-                <p class="descricao">
-                    {{ produto.descricao }}
-                </p>
+                    <p class="descricao">
+                        {{ produto.descricao }}
+                    </p>
 
-                <p class="preco">
-                    R$ {{ produto.preco }}
-                </p>
+                    <p class="preco">
+                        R$ {{ produto.preco }}
+                    </p>
 
-                <p class="artesao">
-                    Artesão: {{ produto.artesao }}
-                </p>
+                    <p class="artesao">
+                        Artesão: {{ produto.artesao.nome }}
+                    </p>
 
-                <p class="local">
-                    {{ produto.cidade }} - {{ produto.estado }}
-                </p>
+                    <p class="local">
+                        {{ produto.artesao.cidade }} - {{ produto.artesao.estado }}
+                    </p>
 
-                <a href="{% url 'produtos:detalhes_produto' produto.id %}"
-                   class="botao-saiba-mais">
-                    Saiba mais
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+                    <a href="{% url 'produtos:detalhes_produto' produto.id %}"
+                       class="botao-saiba-mais">
+                        Saiba mais
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
 
             </div>
 
-        </div>
-
         {% empty %}
 
-        <p class="mensagem-vazia">
-            Nenhum produto cadastrado nesta região ainda.
-        </p>
+            <p class="mensagem-vazia">
+                Nenhum produto cadastrado nesta região ainda.
+            </p>
 
         {% endfor %}
 

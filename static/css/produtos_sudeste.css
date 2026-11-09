@@ -1,5 +1,6 @@
-
-/* CONFIGURAÇÕES GERAIS */
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
 
 * {
     margin: 0;
@@ -9,242 +10,338 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F2F7FF;
-    color: #17365D;
+    background-color: #EAF2FC;
+    color: #23415F;
 }
 
 
-/* MENU */
+/* ==============================
+   MENU
+============================== */
 
 .menu {
+    width: 100%;
+    min-height: 55px;
+    background-color: #3d5d98;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 5%;
-    background-color: #0B4FA3;
+    padding: 10px 30px;
 }
 
-.logo p {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: #FFFFFF;
+.menu .logo p {
     margin: 0;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.logo span {
-    color: #CFE4FF;
+.menu .logo span {
+    color: #EAF2FC;
 }
 
 .menu ul {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 25px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .menu ul li a {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    color: #FFFFFF;
+    color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .menu ul li a:hover {
-    color: #CFE4FF;
+    color: #DCE8F8;
+}
+
+.menu ul li a i {
+    margin-right: 4px;
 }
 
 
-/* CABEÇALHO DA REGIÃO SUDESTE */
-
+/* ==============================
+   CABEÇALHO DA REGIÃO SUDESTE
+============================== */
 
 .cabecalho-sudeste {
-    min-height: 300px;
-    padding: 70px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
-
-
-background-image: url("../img/home/sudeste.png");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-
-
+    width: 100%;
+    min-height: 260px;
+    background-image:
+        linear-gradient(
+            rgba(12, 40, 75, 0.25),
+            rgba(12, 40, 75, 0.25)
+        ),
+        url("../img/home/fundosudeste.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 30px 20px;
+}
+
+.cabecalho-sudeste h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cabecalho-sudeste p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0;
 }
 
 
-
-/* SEÇÃO DOS PRODUTOS */
+/* ==============================
+   ÁREA DOS PRODUTOS
+============================== */
 
 .pagina-produtos {
-    padding: 45px 5%;
-    background-color: #F2F7FF;
+    width: 100%;
+    padding: 45px 25px;
+    background-color: #EAF2FC;
 }
 
 .pagina-produtos h2 {
     font-family: 'Playfair Display', serif;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
-    color: #17365D;
-    text-align: center;
     margin-bottom: 35px;
+    color: #23415F;
 }
 
 
-/* GRADE DE PRODUTOS */
+/* ==============================
+   GRADE DE CARTÕES
+============================== */
 
 .lista-produtos {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 18px;
+    gap: 12px;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    align-items: stretch;
 }
 
 
-/* CARTÕES */
+/* ==============================
+   CARTÃO DO PRODUTO
+============================== */
 
 .card-produto {
+    min-width: 0;
+    background-color: #DCE8F8;
+    border: 1px solid #C1D5EF;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(35, 65, 95, 0.10);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background-color: #DCEBFA;
-    border: 1px solid #B7D2F0;
-    border-radius: 13px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    color: #23415F;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-produto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(23, 54, 93, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(35, 65, 95, 0.15);
 }
 
 
-/* IMAGENS */
+/* IMAGEM DO PRODUTO */
 
 .card-produto img {
     width: 100%;
     height: 170px;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
 
-/* INFORMAÇÕES */
+/* CASO O PRODUTO NÃO TENHA IMAGEM */
 
-.info-produto {
+.sem-imagem {
+    height: 170px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    color: #456586;
+    background-color: #C9DCF3;
+}
+
+.sem-imagem i {
+    font-size: 30px;
+}
+
+.sem-imagem p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+/* INFORMAÇÕES DO PRODUTO */
+
+.info-produto {
+    padding: 15px 13px;
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    padding: 16px;
 }
 
 .info-produto h3 {
     font-family: 'Playfair Display', serif;
+    color: #17365D;
     font-size: 19px;
     font-weight: 600;
-    color: #17365D;
+    line-height: 1.3;
     margin-bottom: 10px;
+    text-decoration: none;
 }
 
-.descricao {
-    font-size: 13px;
-    line-height: 1.6;
-    color: #425D7C;
-    margin-bottom: 12px;
+.info-produto .descricao {
+    color: #456586;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-decoration: none;
 }
 
-.preco {
-    font-size: 16px;
-    font-weight: 600;
+.info-produto .preco {
     color: #0B4FA3;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+
+.info-produto .artesao {
+    color: #456586;
+    font-size: 13px;
+    font-weight: bold;
     margin-bottom: 8px;
+    text-decoration: none;
 }
 
-.artesao,
-.local {
-    font-size: 12px;
-    color: #425D7C;
-    margin-bottom: 7px;
+.info-produto .local {
+    color: #456586;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-decoration: none;
 }
 
 
-/* BOTÃO SAIBA MAIS */
+/* ==============================
+   BOTÃO SAIBA MAIS
+============================== */
 
 .botao-saiba-mais {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-top: auto;
-    padding: 10px 14px;
-    background-color: #0B4FA3;
-    border: 1px solid #0B4FA3;
-    border-radius: 7px;
-    color: #FFFFFF;
+    gap: 10px;
+    width: fit-content;
+    margin-top: 12px;
+    padding: 9px 16px;
+    background-color: #718FBD;
+    color: white;
     text-decoration: none;
+    border: 1px solid #718FBD;
+    border-radius: 20px;
     font-size: 13px;
-    transition: 0.3s;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+.botao-saiba-mais i {
+    font-size: 14px;
+    transition: transform 0.25s ease;
 }
 
 .botao-saiba-mais:hover {
-    background-color: #17365D;
-    border-color: #17365D;
-    color: #FFFFFF;
+    background-color: #31577F;
+    border-color: #31577F;
+    color: white;
+    text-decoration: none;
+}
+
+.botao-saiba-mais:hover i {
+    transform: translateX(4px);
 }
 
 
-/* MENSAGEM QUANDO NÃO HÁ PRODUTOS */
+/* EVITA SUBLINHADOS NOS TEXTOS */
+
+.card-produto h3,
+.card-produto p {
+    text-decoration: none;
+}
+
+
+/* MENSAGEM SEM PRODUTOS */
 
 .mensagem-vazia {
     grid-column: 1 / -1;
     text-align: center;
-    color: #425D7C;
-    padding: 30px;
+    color: #456586;
+    font-size: 15px;
+    padding: 30px 10px;
 }
 
 
-/* RODAPÉ */
+/* ==============================
+   RODAPÉ
+============================== */
 
 .footer {
-    padding: 25px 5%;
+    width: 100%;
+    background-color: #7F9BC5;
+    color: white;
     text-align: center;
-    background-color: #0B4FA3;
-    color: #FFFFFF;
+    padding: 25px 15px;
 }
 
 .footer-logo {
     font-family: 'Playfair Display', serif;
     font-size: 23px;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 8px;
+    color: white;
 }
 
 .footer-logo span {
-    color: #CFE4FF;
+    color: #EAF2FC;
 }
 
 .footer-texto {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0;
 }
 
 
-/* RESPONSIVIDADE */
+/* ==============================
+   RESPONSIVIDADE
+============================== */
 
 @media (max-width: 1100px) {
     .lista-produtos {
@@ -255,43 +352,40 @@ background-repeat: no-repeat;
 @media (max-width: 750px) {
     .menu {
         flex-direction: column;
-        gap: 18px;
+        gap: 12px;
+        padding: 15px;
     }
 
     .menu ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 16px;
+        gap: 15px;
     }
 
     .lista-produtos {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .cabecalho-sudeste {
+        min-height: 220px;
+    }
+
     .cabecalho-sudeste h1 {
-        font-size: 38px;
+        font-size: 36px;
     }
 }
 
 @media (max-width: 480px) {
+    .pagina-produtos {
+        padding: 30px 15px;
+    }
+
     .lista-produtos {
         grid-template-columns: 1fr;
     }
 
-    .pagina-produtos {
-        padding: 35px 6%;
-    }
-
-    .cabecalho-sudeste {
-        min-height: 240px;
-        padding: 50px 20px;
-    }
-
-    .cabecalho-sudeste h1 {
-        font-size: 32px;
-    }
-
-    .cabecalho-sudeste p {
-        font-size: 14px;
+    .card-produto img,
+    .sem-imagem {
+        height: 220px;
     }
 }

@@ -74,18 +74,23 @@ def produto_cadastrado(request, artesao_id):
     )
 
 def produtos_sul(request):
-    produtos = Produto.objects.filter(regiao='Sul')
+    produtos = Produto.objects.filter(regiao='Sul').select_related('artesao')
     return render(request, 'produtos/sul.html', {'produtos': produtos})
 
 
 def produtos_sudeste(request):
-    produtos = Produto.objects.filter(regiao='Sudeste')
+    produtos = Produto.objects.filter(regiao='Sudeste').select_related('artesao')
     return render(request, 'produtos/sudeste.html', {'produtos': produtos})
 
 def produtos_norte(request):
     produtos = Produto.objects.filter(regiao='Norte').select_related('artesao')
 
     return render(request,'produtos/norte.html',{'produtos': produtos})
+
+def produtos_nordeste(request):
+    produtos = Produto.objects.filter(regiao='Nordeste').select_related('artesao')
+
+    return render(request, 'produtos/nordeste.html', {'produtos': produtos})
 
 
 def produtos_centro_oeste(request):
