@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProdutoForm
 from .models import Produto, FotoProduto
@@ -12,7 +13,6 @@ def cadastrar_produto(request, artesao_id):
         imagens = request.FILES.getlist('imagens')
 
         if form.is_valid():
-
             if len(imagens) == 0:
                 form.add_error(None, 'Adicione pelo menos 1 foto do produto.')
 
@@ -34,7 +34,6 @@ def cadastrar_produto(request, artesao_id):
                     'produtos:produto_cadastrado',
                     artesao_id=artesao.id
                 )
-
     else:
         form = ProdutoForm()
 
@@ -54,10 +53,19 @@ def produto_cadastrado(request, artesao_id):
     return render(
         request,
         'produtos/cadastro_sucesso.html',
-        {
-            'artesao': artesao
-        }
+        {'artesao': artesao}
     )
+
+
+def produtos_norte(request):
+    produtos = Produto.objects.filter(regiao='Norte')
+    return render(request, 'produtos/norte.html', {'produtos': produtos})
+
+
+def produtos_nordeste(request):
+    produtos = Produto.objects.filter(regiao='Nordeste')
+    return render(request, 'produtos/nordeste.html', {'produtos': produtos})
+
 
 def produtos_sul(request):
     produtos = Produto.objects.filter(regiao='Sul')
@@ -76,6 +84,7 @@ def produtos_centro_oeste(request):
 
 def detalhes_produto(request, produto_id):
     produto = get_object_or_404(Produto, id=produto_id)
+
     return render(
         request,
         'produtos/detalhes.html',

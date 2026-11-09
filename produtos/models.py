@@ -7,8 +7,11 @@ class Produto(models.Model):
     artesao = models.ForeignKey(
         Artesao,
         on_delete=models.CASCADE,
-        related_name='produtos'
+        related_name='produtos',
+        null=True,
+        blank=True
     )
+
     nome = models.CharField(max_length=100)
     descricao = models.TextField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
@@ -27,6 +30,7 @@ class FotoProduto(models.Model):
         on_delete=models.CASCADE,
         related_name='fotos'
     )
+
     imagem = models.ImageField(upload_to='produtos/')
 
     def __str__(self):
