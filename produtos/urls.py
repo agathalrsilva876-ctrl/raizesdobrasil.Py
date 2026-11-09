@@ -1,4 +1,3 @@
-
 from django.urls import path
 from . import views
 
@@ -15,8 +14,8 @@ urlpatterns = [
     path('cadastro-sucesso/<int:artesao_id>/', views.produto_cadastrado, name='produto_cadastrado'),
 
     path(
-        'detalhes/<int:produto_id>/',
-        views.detalhes_produto,
-        name='detalhes_produto'
+        'cadastrar/<int:artesao_id>/',
+        views.cadastrar_produto,
+        name='cadastrar'
     ),
-]
+    ]
