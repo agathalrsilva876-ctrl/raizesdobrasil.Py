@@ -1,20 +1,163 @@
 <!DOCTYPE html>
+{% load static %}
+
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Cadastro concluído | Raízes do Brasil</title>
 
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+
+    <style>
+        .sucesso-container {
+            max-width: 650px;
+            margin: 80px auto;
+            padding: 45px 25px;
+            text-align: center;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+        }
+
+        .sucesso-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .botoes-sucesso {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .botoes-sucesso a {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .botao-cadastrar {
+            background: #a64b65;
+            color: white;
+        }
+
+        .botao-inicio {
+            background: #eee;
+            color: #333;
+        }
+
+        .botoes-sucesso a:hover {
+            opacity: 0.85;
+        }
+    </style>
 </head>
+
 <body>
 
-        <h1>Produto cadastrado com sucesso!</h1>
+    <!-- MENU -->
+    <nav class="menu" id="menu">
 
-        <p>
-            <strong>{{ artesao.nome_loja }}</strong>.
+        <div class="logo">
+            <p>Raízes Do<span> Brasil</span></p>
+        </div>
+
+        <ul>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'core:home' %}#regioes">
+                    <i class="bi bi-globe-americas"></i>
+                    <span>Regiões</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'artesaos:cadastrar' %}">
+                    <i class="bi bi-shop"></i>
+                    <span>Cadastro</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Entrar</span>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <main class="pg-container">
+
+        <div class="sucesso-container">
+
+            <h1>Produto cadastrado com sucesso!</h1>
+
+            <p>
+                O produto da loja
+                <strong>{{ artesao.nome_loja }}</strong>
+                foi cadastrado!
+            </p>
+
+            <p>O que deseja fazer agora?</p>
+
+            <div class="botoes-sucesso">
+
+                <a class="botao-cadastrar"
+                   href="{% url 'produtos:cadastrar' artesao.id %}">
+                    Cadastrar outro produto
+                </a>
+
+                <a class="botao-inicio"
+                   href="{% url 'core:home' %}">
+                    Voltar ao início
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+
+        <p class="footer-logo">
+            Raízes<span>doBrasil</span>
         </p>
 
-                Cadastrar outro produto
-            </a>
+        <p class="footer-texto">
+            &copy; 2026 Raízes do Brasil • Todos os direitos reservados
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

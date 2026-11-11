@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +6,67 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fffaf5;
-    color: #4a3025;
+    font-family: "Cormorant", serif;
+    background-color: #F7EFCA;
+    color: #355A35;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+}
+/* MENU */
+.menu {
+    height: 80px;
+    position: sticky;
+    top: 0;
+    background-color: #2E4365;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    padding: 0 20px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #F3D58D;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+    margin: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #F3D58D;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    font-size: 17px;
+    gap: 8px;
+}
+
+.menu li a:hover {
+    border-bottom: #F3D58D 1px solid;
 }
 
 .produto-container {
     width: 100%;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 40px auto;
 
     background-color: white;
 
@@ -29,9 +79,9 @@ body {
 
 h1 {
     text-align: center;
-    color: #8b3f2f;
     font-size: 30px;
     margin-bottom: 10px;
+    color: #355A35;
 }
 
 .loja {
@@ -140,4 +190,23 @@ button:hover {
     h1 {
         font-size: 25px;
     }
+}
+/* RODAPÉ */
+.footer {
+    width: 100%;
+    background-color: #2E4365;
+    color: #F3D58D;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-family: "Cormorant", serif;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.footer-texto {
+    font-size: 15px;
 }

@@ -5,6 +5,35 @@ from .models import Produto, FotoProduto
 from artesaos.models import Artesao
 
 
+# PÁGINAS DAS REGIÕES
+
+def produtos_norte(request):
+    produtos = Produto.objects.filter(regiao='Norte')
+    return render(request, 'produtos/norte.html', {'produtos': produtos})
+
+
+def produtos_nordeste(request):
+    produtos = Produto.objects.filter(regiao='Nordeste')
+    return render(request, 'produtos/nordeste.html', {'produtos': produtos})
+
+
+def produtos_sul(request):
+    produtos = Produto.objects.filter(regiao='Sul')
+    return render(request, 'produtos/sul.html', {'produtos': produtos})
+
+
+def produtos_sudeste(request):
+    produtos = Produto.objects.filter(regiao='Sudeste')
+    return render(request, 'produtos/sudeste.html', {'produtos': produtos})
+
+
+def produtos_centro_oeste(request):
+    produtos = Produto.objects.filter(regiao='Centro-Oeste')
+    return render(request, 'produtos/Centro_oeste.html', {'produtos': produtos})
+
+
+# CADASTRO DE PRODUTOS
+
 def cadastrar_produto(request, artesao_id):
     artesao = get_object_or_404(Artesao, id=artesao_id)
 
@@ -15,30 +44,23 @@ def cadastrar_produto(request, artesao_id):
         if form.is_valid():
 
             if len(imagens) == 0:
-                form.add_error(
-                    None,
-                    'Adicione pelo menos 1 foto do produto.'
-                )
+                form.add_error(None, 'Adicione pelo menos 1 foto do produto.')
 
             elif len(imagens) > 4:
-                form.add_error(
-                    None,
-                    'Você pode adicionar no máximo 4 fotos.'
-                )
+                form.add_error(None, 'Você pode adicionar no máximo 4 fotos.')
 
             else:
                 produto = form.save(commit=False)
-
                 produto.artesao = artesao
                 produto.cidade = artesao.cidade
                 produto.estado = artesao.estado
                 produto.regiao = artesao.regiao
                 produto.imagem = imagens[0]
-
                 produto.save()
 
-                # Salva todas as fotos na galeria
-                for imagem in imagens:
+                # A primeira foto já está no campo principal.
+                # As demais ficam na galeria.
+                for imagem in imagens[1:]:
                     FotoProduto.objects.create(
                         produto=produto,
                         imagem=imagem
@@ -62,6 +84,8 @@ def cadastrar_produto(request, artesao_id):
     )
 
 
+# TELA DE CADASTRO CONCLUÍDO
+
 def produto_cadastrado(request, artesao_id):
     artesao = get_object_or_404(Artesao, id=artesao_id)
 
@@ -74,14 +98,15 @@ def produto_cadastrado(request, artesao_id):
     )
 
 
-def produtos_centro_oeste(request):
-    produtos = Produto.objects.filter(
-        regiao='Centro-Oeste'
-    ).select_related('artesao')
+# DETALHES DO PRODUTO
+
+def detalhes_produto(request, produto_id):
+    produto = get_object_or_404(Produto, id=produto_id)
 
     return render(
         request,
-        'produtos/centro_oeste.html',
-        {'produtos': produtos}
+        'produtos/detalhes.html',
+        {
+            'produto': produto
+        }
     )
-

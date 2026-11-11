@@ -1,52 +1,130 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'artesaos/cadastro.css' %}">
+
     <meta charset="UTF-8">
-    <title>Cadastrar Artesão</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar Artesão | Raízes do Brasil</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+<body class="pagina-cadastro">
 
-<body>
+    <!-- MENU -->
+    <nav class="menu">
 
-    <h1>Cadastrar Artesão</h1>
+        <div class="logo">
+            <p>Raízes<span>doBrasil</span></p>
+        </div>
 
-    <form method="POST">
-        {% csrf_token %}
+        <ul>
+            <li>
+                <a href="{% url 'core:home' %}">
+                    <i class="bi bi-house"></i>
+                    <span>Início</span>
+                </a>
+            </li>
 
-        {{ form.as_p }}
+            <li>
+                <a href="{% url 'core:home' %}#regioes">
+                    <i class="bi bi-globe-americas"></i>
+                    <span>Regiões</span>
+                </a>
+            </li>
 
-        <button type="submit">Cadastrar</button>
-    </form>
-<script>
-    const telefone = document.getElementById('telefone');
+            <li>
+                <a href="{% url 'core:quem_somos' %}">
+                    <i class="bi bi-bookmark"></i>
+                    <span>Sobre</span>
+                </a>
+            </li>
 
-    telefone.addEventListener('input', function () {
-        let valor = telefone.value.replace(/\D/g, '');
+            <li>
+                <a href="{% url 'artesaos:cadastrar' %}">
+                    <i class="bi bi-shop"></i>
+                    <span>Cadastro</span>
+                </a>
+            </li>
 
-        if (valor.length > 11) {
-            valor = valor.substring(0, 11);
+            <li>
+                <a href="#">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Entrar</span>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="conteudo-principal">
+
+        <h1>Cadastrar Artesão</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+
+        <p class="footer-logo">
+            Raízes<span>doBrasil</span>
+        </p>
+
+        <p class="footer-texto">
+            &copy; 2026 Raízes do Brasil • Todos os direitos reservados
+        </p>
+
+    </footer>
+
+    <!-- MÁSCARA DO TELEFONE -->
+    <script>
+        const telefone = document.getElementById('telefone');
+
+        if (telefone) {
+            telefone.addEventListener('input', function () {
+                let valor = telefone.value.replace(/\D/g, '');
+
+                if (valor.length > 11) {
+                    valor = valor.substring(0, 11);
+                }
+
+                if (valor.length > 6) {
+                    valor = valor.replace(
+                        /^(\d{2})(\d{5})(\d{0,4}).*/,
+                        '($1) $2-$3'
+                    );
+                } else if (valor.length > 2) {
+                    valor = valor.replace(
+                        /^(\d{2})(\d{0,5})/,
+                        '($1) $2'
+                    );
+                } else if (valor.length > 0) {
+                    valor = valor.replace(
+                        /^(\d{0,2})/,
+                        '($1'
+                    );
+                }
+
+                telefone.value = valor;
+            });
         }
+    </script>
 
-        if (valor.length > 6) {
-            valor = valor.replace(
-                /^(\d{2})(\d{5})(\d{0,4}).*/,
-                '($1) $2-$3'
-            );
-        } else if (valor.length > 2) {
-            valor = valor.replace(
-                /^(\d{2})(\d{0,5})/,
-                '($1) $2'
-            );
-        } else if (valor.length > 0) {
-            valor = valor.replace(
-                /^(\d{0,2})/,
-                '($1'
-            );
-        }
-
-        telefone.value = valor;
-    });
-</script>
 </body>
 </html>
