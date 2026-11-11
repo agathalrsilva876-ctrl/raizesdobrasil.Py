@@ -12,6 +12,18 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #EAF2FC;
     color: #23415F;
+     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+html, body {
+    min-height: 100%;
+    margin: 0;
+}
+
+main {
+    flex: 1;
 }
 
 
