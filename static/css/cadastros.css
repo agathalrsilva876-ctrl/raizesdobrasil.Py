@@ -1,0 +1,360 @@
+
+/* PADRÃO DAS PÁGINAS DE CADASTRO */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body.pagina-cadastro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF8D9;
+    color: #1C351F;
+    font-family: "Cormorant", serif;
+    line-height: 1.5;
+    padding: 0;
+}
+
+/* MENU */
+
+.pagina-cadastro .menu {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    min-height: 65px;
+    padding: 10px 30px;
+    background-color: #2E4365;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pagina-cadastro .logo p {
+   color: #F3D58D;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.pagina-cadastro .logo span {
+   color: #F3D58D;
+}
+
+.pagina-cadastro .menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagina-cadastro .menu li a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 5px;
+    color: #F3D58D;
+    font-family: "Cormorant", serif;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.pagina-cadastro .menu li a:hover {
+    border-bottom: 1px solid #FFF1BF;
+}
+
+/* CONTEÚDO */
+
+.pagina-cadastro main {
+    display: block;
+    width: 100%;
+}
+
+.pagina-cadastro .conteudo-principal {
+    flex: 1;
+    width: 100%;
+    padding: 45px 20px;
+}
+
+/* CARTÕES */
+
+.pagina-cadastro .formulario-container,
+.pagina-cadastro .sucesso-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(28, 53, 31, 0.12);
+}
+
+.pagina-cadastro h1 {
+    color: #1C351F;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.pagina-cadastro h2 {
+    color: #355A35;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.pagina-cadastro p {
+    margin-bottom: 15px;
+}
+
+.pagina-cadastro .loja {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* FORMULÁRIOS */
+
+.pagina-cadastro form p {
+    margin-bottom: 18px;
+}
+
+.pagina-cadastro label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #355A35;
+}
+
+.pagina-cadastro input,
+.pagina-cadastro textarea,
+.pagina-cadastro select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d9cda5;
+    border-radius: 10px;
+    background-color: #fffdf7;
+    color: #1C351F;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    outline: none;
+}
+
+.pagina-cadastro input:focus,
+.pagina-cadastro textarea:focus,
+.pagina-cadastro select:focus {
+    border-color: #7F91BC;
+    box-shadow: 0 0 0 3px rgba(127, 145, 188, 0.15);
+}
+
+.pagina-cadastro textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.pagina-cadastro input[type="file"] {
+    padding: 10px;
+    background-color: #fffaf0;
+}
+
+.pagina-cadastro .fotos {
+    margin: 25px 0;
+}
+
+.pagina-cadastro .dica-fotos {
+    margin-top: 7px;
+    font-size: 13px;
+    color: #777;
+}
+
+/* BOTÕES */
+
+.pagina-cadastro button,
+.pagina-cadastro .botao {
+    display: inline-block;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7F91BC;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pagina-cadastro button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pagina-cadastro button:hover,
+.pagina-cadastro .botao:hover {
+    background-color: #6379A8;
+    transform: translateY(-1px);
+}
+
+.pagina-cadastro .botao-secundario {
+    background-color: #eee;
+    color: #333;
+}
+
+.pagina-cadastro .botao-secundario:hover {
+    background-color: #ddd;
+}
+
+/* SUCESSO */
+
+.pagina-cadastro .sucesso-container {
+    text-align: center;
+}
+
+.pagina-cadastro .icone-sucesso {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background-color: #e7f3df;
+    color: #5d8a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.pagina-cadastro .botoes,
+.pagina-cadastro .botoes-sucesso {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.pagina-cadastro .divisao {
+    width: 80px;
+    height: 2px;
+    background-color: #d9b9a7;
+    margin: 28px auto;
+}
+
+/* RODAPÉ */
+
+.pagina-cadastro .footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 25px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: #2E4365;
+    color: #F3D58D;
+}
+
+.pagina-cadastro .footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    font-family: "Cormorant", serif;
+}
+
+.pagina-cadastro .footer-logo span {
+    color: #FFE8A3;
+}
+
+.pagina-cadastro .footer-texto {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1024px) {
+    .pagina-cadastro .menu {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .pagina-cadastro .menu .logo {
+        position: static;
+    }
+
+    .pagina-cadastro .menu p {
+        display: block;
+    }
+
+    .pagina-cadastro .menu ul {
+        flex-direction: row;
+        position: static;
+    }
+
+    .pagina-cadastro .menu li a span {
+        display: inline;
+    }
+}
+
+@media (max-width: 600px) {
+    .pagina-cadastro .menu {
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .pagina-cadastro .logo p {
+        font-size: 22px;
+    }
+
+    .pagina-cadastro .menu ul {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .pagina-cadastro .menu li a {
+        font-size: 12px;
+        padding: 7px 3px;
+    }
+
+    .pagina-cadastro .menu li a span {
+        display: none;
+    }
+
+    .pagina-cadastro .conteudo-principal {
+        padding: 25px 15px;
+    }
+
+    .pagina-cadastro .formulario-container,
+    .pagina-cadastro .sucesso-container {
+        padding: 28px 20px;
+    }
+
+    .pagina-cadastro h1 {
+        font-size: 25px;
+    }
+
+    .pagina-cadastro .botoes,
+    .pagina-cadastro .botoes-sucesso {
+        flex-direction: column;
+    }
+
+    .pagina-cadastro .botao {
+        width: 100%;
+    }
+}
