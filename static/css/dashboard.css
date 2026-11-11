@@ -1,84 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   IDENTIDADE VISUAL - RAÍZES DO BRASIL
+======================================== */
 
 :root {
-    /* Identidade */
-    --pp-primary: #6366f1;
-    --pp-primary-soft: rgba(99, 102, 241, 0.1);
+    /* Cores principais */
+    --pp-primary: #136525;
+    --pp-primary-soft: rgba(166, 95, 50, 0.12);
 
-    /* Ações Semânticas (CRUD) */
-    --pp-action-save: #10b981;
-    --pp-action-save-hover: #059669;
+    /* Ações */
+    --pp-action-save: #657b46;
+    --pp-action-save-hover: #4f6335;
 
-    --pp-action-edit: #f59e0b;
-    --pp-action-edit-hover: #d97706;
+    --pp-action-edit: #d99a32;
+    --pp-action-edit-hover: #bd7e20;
 
-    --pp-action-delete: #ef4444;
-    --pp-action-delete-hover: #dc2626;
+    --pp-action-delete: #b94b3b;
+    --pp-action-delete-hover: #96382d;
 
-    --pp-action-search: #3b82f6;
-    --pp-action-search-hover: #2563eb;
+    --pp-action-search: #b8733f;
+    --pp-action-search-hover: #92552f;
 
-    --pp-action-back: #64748b;
-    --pp-action-back-hover: #475569;
+    --pp-action-back: #80644d;
+    --pp-action-back-hover: #604833;
 
     /* Superfícies */
-    --pp-bg: #f8fafc;
-    --pp-bg-destaque: #eef2ff;
-    --pp-header-bg: #ffffff;
-    --pp-card-bg: #ffffff;
-    --pp-sidebar-bg: #0f172a;
-    --pp-border: #e2e8f0;
-    --pp-white: #ffffff;
+    --pp-bg: #fff9e4;
+    --pp-bg-destaque: #f8edcf;
+    --pp-header-bg: #fffdf6;
+    --pp-card-bg: #fffdf6;
+    --pp-sidebar-bg: #0a571c;
+    --pp-border: #ead9b8;
+    --pp-white: #fffdf6;
 
     /* Tipografia */
-    --pp-text-main: #1e293b;
-    --pp-text-muted: #64748b;
+    --pp-text-main: #493626;
+    --pp-text-muted: #927b63;
+
     --pp-font-main: 'Inter', sans-serif;
-    --pp-font-secondary: 'Montserrat', sans-serif;
+--pp-font-secondary: 'Cormorant Garamond', serif;
 }
 
-/* formartar */
-#tema-trocar:checked ~ .pp-wrapper{
-    --pp-bg:#0f172a;
-    --pp-header-bg:#1e293b;
-    --pp-card-bg:#1e293b;
-    --pp-sidebar-bg:#1e293b;
-    --pp-text-main:#ffff;
-}
 
-/* Reset Global */
+/* ========================================
+   RESET GLOBAL
+======================================== */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-body{
+body {
     font-family: var(--pp-font-main);
     background-color: var(--pp-bg);
     color: var(--pp-text-main);
-    padding-bottom: 70px;
-
-}
-
-/* principal */
-
-.pp-wrapper{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: "header" "content";
     min-height: 100vh;
-
 }
 
-/* cabeçalho */
 
-.pp-header{
-    grid-area: header;
+/* ========================================
+   ESTRUTURA PRINCIPAL
+======================================== */
+
+.pp-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.pp-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+}
+.pp-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+/* ========================================
+   MENU LATERAL
+======================================== */
+
+.pp-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: var(--pp-sidebar-bg);
+    color: var(--pp-white);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.pp-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 3rem;
+    color: #f0d58c;
+    font-family: var(--pp-font-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pp-logo span {
+    font-size: 30px;
+}
+
+.pp-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pp-nav a,
+.pp-sidebar-bottom a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.pp-nav p:hover,
+.pp-sidebar-bottom p:hover {
+    background-color: rgba(255, 249, 228, 0.12);
+    color: #f0d58c;
+}
+
+.pp-nav p.active {
+    background-color: var(--pp-primary);
+    color: var(--pp-white);
+}
+
+.pp-nav span,
+.pp-sidebar-bottom span {
+    font-size: 22px;
+}
+
+.pp-sidebar-bottom {
+    margin-top: auto;
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.pp-header {
+    min-height: 80px;
     background-color: var(--pp-header-bg);
-    padding: 1rem 1.5rem;
+    padding: 1rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,222 +168,373 @@ body{
     z-index: 100;
 }
 
-.pp-header h1{
+.pp-header h1 {
     font-family: var(--pp-font-secondary);
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     color: var(--pp-text-main);
-
 }
 
-.pp-header-actions{
-    display: flexbox;
+.pp-header p {
+    color: var(--pp-text-muted);
+    font-size: 1rem;
+}
+
+.pp-header-actions {
+    display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
     color: var(--pp-text-muted);
 }
 
-.pp-icon-btn{
+.pp-icon-btn {
     cursor: pointer;
+    font-size: 26px;
     transition: 0.2s;
 }
 
-.pp-icon-btn:hover{
-    color: var(--pp-action-save);
-}
-
-.pp-sidebar{
-    grid-area: sidebar;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--pp-sidebar-bg);
-    color: var(--pp-white);
-    z-index: 1000;
-    padding: 10px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.pp-logo{
-    display: none;
-}
-
-.pp-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.pp-nav p{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.9rem;
-    color: var(--pp-text-muted);
-    cursor: pointer;
-    transition: 0.3s;
-
-}
-
-.pp-nav .pp-active{
+.pp-icon-btn:hover {
     color: var(--pp-primary);
 }
 
-/* conteudo */
 
-.pp-content{
-    grid-area: content;
-    padding: 1.5rem;
+/* ========================================
+   CONTEÚDO
+======================================== */
+
+.pp-content {
+    flex: 1;
+    padding: 2rem 2.5rem;
     background-color: var(--pp-bg-destaque);
-
 }
 
-.pp-grid{
+.pp-grid {
     display: grid;
-    gap:1.2rem;
-    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* cards */
 
-.pp-card{
+/* ========================================
+   CARDS
+======================================== */
+
+.pp-card {
     background-color: var(--pp-card-bg);
     padding: 1.5rem;
     border-radius: 12px;
     border: 1px solid var(--pp-border);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(89, 60, 43, 0.08);
     color: var(--pp-text-main);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.pp-card h3{
+.pp-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(89, 60, 43, 0.12);
+}
+
+.pp-card h3 {
     font-family: var(--pp-font-secondary);
-    font-size: 0.75rem;
-    color: var(--pp-text-muted);
-    text-transform: uppercase;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--pp-text-main);
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
     gap: 8px;
 }
 
-.pp-item{
+.pp-card h3 .material-symbols-outlined {
+    color: var(--pp-primary);
+    font-size: 23px;
+}
+
+.pp-card-lg {
+    grid-column: span 2;
+}
+
+
+/* ========================================
+   INFORMAÇÕES DOS CARDS
+======================================== */
+
+.pp-value {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: var(--pp-primary);
+    margin-bottom: 5px;
+}
+
+.pp-card small {
+    color: var(--pp-text-muted);
+    font-size: 0.95rem;
+}
+
+.pp-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--pp-border);
 }
 
-.pp-item:last-child{
+.pp-item:last-child {
     border: none;
 }
 
-.pp-item-text{
+.pp-item-text {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
-.pp-item-text small{
+.pp-item-text strong {
+    color: var(--pp-text-main);
+    font-size: 1.05rem;
+}
+
+.pp-item-text small {
     color: var(--pp-text-muted);
 }
 
-.pp-value{
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.pp-trend-up{
-    color: var(--pp-action-search);
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.pp-alert-val{
+.pp-alert-val {
     color: var(--pp-action-delete);
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.4rem;
 }
 
-.pp-time-tag{
-    background-color: var(--pp-primary-soft);
-    color: var(--pp-primary);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.8rem;
+
+/* ========================================
+   GRÁFICO
+======================================== */
+
+.pp-chart-box {
+    min-height: 200px;
+    background-color: var(--pp-bg);
+    border: 1px dashed var(--pp-border);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pp-text-muted);
+    font-size: 1rem;
 }
 
-@media (min-width: 1024px){
-    body{
-        padding-bottom: 0;
-    }
+/* PÁGINA MEUS PRODUTOS */
 
-    .pp-wrapper{
-        height: 100vh;
-        grid-template-columns: 260px 1fr;
-        grid-template-rows: 70px 1fr;
-        grid-template-areas: "sidebar header" "sidebar content";
+.produtos-container {
+    width: 100%;
+}
 
-    }
+.produtos-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
 
-    .pp-sidebar{
-        position: static;
-        display: block;
-        padding: 2rem 1.5rem;
-        border-top: none;
-    }
+.produtos-topo h1 {
+    color: var(--pp-text-main);
+    margin-bottom: 8px;
+}
 
-    .pp-logo{
-        display: flex;
-        align-items: center;
-        gap:12px;
-        margin-bottom: 3rem;
-        color: var(--pp-primary);
-        font-family: var(--pp-font-secondary);
-        font-size: 1.3rem;
-    }
+.produtos-topo p {
+    color: var(--pp-text-muted);
+}
 
-    .pp-nav{
+.btn-cadastrar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: var(--pp-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn-cadastrar:hover {
+    opacity: 0.9;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.produto-card {
+    background: var(--pp-card-bg);
+    border: 1px solid var(--pp-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.produto-info {
+    padding: 16px;
+}
+
+.produto-sem-imagem {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pp-bg-destaque);
+}
+
+.produtos-vazio {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--pp-card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--pp-border);
+}
+
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.pp-footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: #f0d58c;
+    color: var(--pp-text-main);
+    text-align: center;
+    padding: 18px;
+    font-size: 0.95rem;
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1023px) {
+
+    .pp-wrapper {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
     }
 
-    .pp-nav p{
-        display: flex;
+    .pp-main {
+        min-height: 100vh;
+    }
+
+    .pp-sidebar {
+        order: 2;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        z-index: 1000;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pp-logo {
+        display: none;
+    }
+
+    .pp-nav {
         flex-direction: row;
-        font-size: 0.95rem;
-        padding: 12px;
-        border-radius: 8px;
-        gap:15px;
-
+        justify-content: space-around;
+        align-items: center;
+        gap: 4px;
     }
 
-    .pp-nav p:hover{
-        background-color: rgba(255, 255, 255, 0.02);
-        color: var(--pp-white);
+    .pp-nav p {
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 5px;
+        font-size: 0.85rem;
+        text-align: center;
     }
 
-    .pp-nav p.active{
-        background-color: var(--pp-primary);
+    .pp-sidebar-bottom {
+        display: none;
     }
 
-    /* cabeçalho */
-
-    .pp-header{
-        height: 70px;
-        padding: 0 2.5rem;
+    .pp-header {
+        padding: 1rem 1.5rem;
     }
 
-    .pp-header h1{
-        font-size: 1.5rem;
+    .pp-content {
+        padding: 1.5rem;
+        padding-bottom: 100px;
     }
 
-    .pp-grid{
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    .pp-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .pp-card-lg{
-        grid-column: span 3 ;
+    .pp-card-lg {
+        grid-column: span 2;
+    }
+
+    .pp-footer {
+        margin-bottom: 65px;
+    }
+}
+
+
+/* ========================================
+   TELAS PEQUENAS
+======================================== */
+
+@media (max-width: 600px) {
+
+    .pp-header {
+        padding: 1rem;
+    }
+
+    .pp-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .pp-header p {
+        font-size: 0.9rem;
+    }
+
+    .pp-content {
+        padding: 1rem;
+        padding-bottom: 100px;
+    }
+
+    .pp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pp-card-lg {
+        grid-column: span 1;
+    }
+
+    .pp-card {
+        padding: 1.2rem;
+    }
+
+    .pp-value {
+        font-size: 2rem;
+    }
+
+    .pp-nav p {
+        font-size: 0.75rem;
+    }
+
+    .pp-nav span {
+        font-size: 21px;
+    }
+
+    .pp-footer {
+        font-size: 0.8rem;
     }
 }

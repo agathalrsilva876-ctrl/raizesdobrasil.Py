@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raízes do Brasil | Meu Dashboard</title>
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+
+<body>
+
+    <div class="pp-wrapper">
+
+        <!-- MENU LATERAL -->
+<!-- MENU LATERAL -->
+<aside class="pp-sidebar">
+
+    <h2 class="pp-logo">
+        <span class="material-symbols-outlined">storefront</span>
+        Raízes do Brasil
+    </h2>
+
+    <nav class="pp-nav">
+
+        <a href="{% url 'core:dashboard_artesao' %}" class="active">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="{% url 'core:meus_produtos' %}">
+    <span class="material-symbols-outlined">inventory_2</span>
+    <span>Meus produtos</span>
+        </a>
+
+        <a href="#">
+            <span class="material-symbols-outlined">add_box</span>
+            <span>Cadastrar produto</span>
+        </a>
+
+        <a href="#">
+            <span class="material-symbols-outlined">person</span>
+            <span>Meu perfil</span>
+        </a>
+
+    </nav>
+
+    <div class="pp-sidebar-bottom">
+        <a href="#">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Sair</span>
+        </a>
+    </div>
+
+</aside>
+
+
+
+
+<!-- ÁREA PRINCIPAL -->
+<div class="pp-main">
+
+    <!-- CABEÇALHO -->
+    <header class="pp-header">
+
+        <div>
+            <h1>Meu Dashboard</h1>
+            <p>Área do artesão</p>
+        </div>
+
+        <div class="pp-header-actions">
+            <span class="material-symbols-outlined pp-icon-btn">
+                notifications
+            </span>
+
+            <span class="material-symbols-outlined pp-icon-btn">
+                account_circle
+            </span>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="pp-content">
+
+        {% block content %}
+
+        <div class="pp-grid">
+
+            <div class="pp-card">
+                <h3>
+                    <span class="material-symbols-outlined">inventory_2</span>
+                    Meus Produtos
+                </h3>
+                <p class="pp-value">--</p>
+                <small>Total de produtos cadastrados</small>
+            </div>
+
+            <div class="pp-card">
+                <h3>
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Publicados
+                </h3>
+                <p class="pp-value">--</p>
+                <small>Produtos disponíveis no site</small>
+            </div>
+
+            <div class="pp-card">
+                <h3>
+                    <span class="material-symbols-outlined">pending_actions</span>
+                    Em análise
+                </h3>
+                <p class="pp-value">--</p>
+                <small>Aguardando aprovação</small>
+            </div>
+
+            <div class="pp-card pp-card-lg">
+                <h3>
+                    <span class="material-symbols-outlined">history</span>
+                    Meus Produtos Recentes
+                </h3>
+
+                <div class="pp-item">
+                    <div class="pp-item-text">
+                        <strong>Seus produtos aparecerão aqui</strong>
+                        <small>Acompanhe os últimos produtos cadastrados.</small>
+                    </div>
+                    <span class="material-symbols-outlined">inventory</span>
+                </div>
+
+                <div class="pp-item">
+                    <div class="pp-item-text">
+                        <strong>Gerencie seus produtos</strong>
+                        <small>Consulte e atualize seus cadastros.</small>
+                    </div>
+                    <span class="material-symbols-outlined">edit</span>
+                </div>
+            </div>
+
+            <div class="pp-card">
+                <h3>
+                    <span class="material-symbols-outlined">info</span>
+                    Orientações
+                </h3>
+
+                <p class="pp-alert-val">Atenção!</p>
+
+                <small>
+                    Acompanhe a situação dos seus produtos
+                    e mantenha suas informações atualizadas.
+                </small>
+            </div>
+
+        </div>
+
+        {% endblock %}
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="pp-footer">
+        © 2026 Raízes do Brasil • Todos os direitos reservados
+    </footer>
+
+</div>
+</div>
+
+</body>
+</html>
