@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ produto.nome }} - Raízes do Brasil</title>
+
+    <link rel="stylesheet"
+          href="{% static 'produtos/detalhes_produto.css' %}">
+</head>
+
+<body>
+
+    <main class="detalhes-container">
+
+        <h1>{{ produto.nome }}</h1>
+
+        <p class="subtitulo">
+            Conheça mais sobre este produto artesanal
+        </p>
+
+        {% if produto.imagem %}
+            <img
+                class="foto-principal"
+                src="{{ produto.imagem.url }}"
+                alt="{{ produto.nome }}"
+            >
+        {% endif %}
+
+        <div class="galeria">
+
+            {% for foto in produto.fotos.all %}
+                {% if foto.imagem %}
+                    <img
+                        src="{{ foto.imagem.url }}"
+                        alt="Outra foto de {{ produto.nome }}"
+                    >
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <div class="informacoes">
+
+            <h2>Sobre o produto</h2>
+
+            <p>{{ produto.descricao }}</p>
+
+            <p class="preco">
+                R$ {{ produto.preco }}
+            </p>
+
+            <h2>Informações da loja</h2>
+
+            <p>
+                <strong>Loja:</strong>
+                {{ produto.artesao.nome_loja }}
+            </p>
+
+            <p>
+                <strong>Cidade:</strong>
+                {{ produto.cidade }}
+            </p>
+
+            <p>
+                <strong>Estado:</strong>
+                {{ produto.estado }}
+            </p>
+
+            <p>
+                <strong>Região:</strong>
+                {{ produto.regiao }}
+            </p>
+
+        </div>
+
+        <a href="javascript:history.back()" class="botao-voltar">
+            Voltar
+        </a>
+
+    </main>
+
+</body>
+</html>
