@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+
+{% load static %}
+
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes do Brasil | Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 </head>
 <body>
+
+    <div class="login-container">
+        <h1>Raízes do Brasil</h1>
+        <h2>Entrar na minha conta</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="username">Usuário</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
 
 </body>
 </html>
