@@ -1,16 +1,13 @@
-
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 
 <head>
-    {% load static %}
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cadastrar Artesão | Raízes do Brasil</title>
-
+    <link rel="stylesheet" href="{% static 'css/cadastros.css' %}">
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
@@ -63,21 +60,53 @@
     </nav>
 
     <!-- CONTEÚDO -->
-    <main class="conteudo-principal">
+   <main class="conteudo-principal">
 
-        <h1>Cadastrar Artesão</h1>
+    <div class="formulario-container">
+
+        <h1>Cadastrar Artesão e Loja</h1>
 
         <form method="POST">
-
             {% csrf_token %}
 
-            {{ form.as_p }}
+
+{{ form.non_field_errors }}
+
+<p>
+    {{ form.nome.label_tag }}
+    {{ form.nome }}
+    {{ form.nome.errors }}
+</p>
+
+<p>
+    {{ form.email.label_tag }}
+    {{ form.email }}
+    {{ form.email.errors }}
+</p>
+
+<p>
+    {{ form.senha.label_tag }}
+    {{ form.senha }}
+    {{ form.senha.errors }}
+</p>
+
+{% for campo in form %}
+    {% if campo.name != 'nome' and campo.name != 'email' and campo.name != 'senha' %}
+        <p>
+            {{ campo.label_tag }}
+            {{ campo }}
+            {{ campo.errors }}
+        </p>
+    {% endif %}
+{% endfor %}
 
             <button type="submit">Cadastrar</button>
 
         </form>
 
-    </main>
+    </div>
+
+</main>
 
     <!-- RODAPÉ -->
     <footer class="footer">
@@ -87,7 +116,7 @@
         </p>
 
         <p class="footer-texto">
-            &copy; 2026 Raízes do Brasil • Todos os direitos reservados
+            © 2026 Raízes do Brasil • Todos os direitos reservados
         </p>
 
     </footer>
@@ -127,4 +156,4 @@
     </script>
 
 </body>
-</html>
+</html>\
