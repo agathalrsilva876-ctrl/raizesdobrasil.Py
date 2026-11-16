@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from produtos.models import Produto
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 def home(request):
@@ -12,6 +13,7 @@ def quem_somos(request):
 
 def sudeste(request):
     return render(request, 'core/sudeste.html')
+@staff_member_required(login_url='usuarios:login')
 def dashboard(request):
     return render(request, 'usuarios/dashboard.html')
 

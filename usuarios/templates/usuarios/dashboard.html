@@ -30,10 +30,12 @@
 
             <nav class="pp-nav">
 
-                <p class="active">
+
+                <a href="{% url 'core:dashboard' %}" class="active">
                     <span class="material-symbols-outlined">dashboard</span>
                     <span>Dashboard</span>
-                </p>
+                </a>
+
 
                 <p>
                     <span class="material-symbols-outlined">groups</span>
@@ -57,12 +59,18 @@
 
             </nav>
 
-            <div class="pp-sidebar-bottom">
-                <p>
-                    <span class="material-symbols-outlined">logout</span>
-                    <span>Sair</span>
-                </p>
-            </div>
+
+<div class="pp-sidebar-bottom">
+    <form method="POST" action="{% url 'usuarios:logout' %}">
+        {% csrf_token %}
+
+        <button type="submit" class="pp-logout-btn">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Sair</span>
+        </button>
+    </form>
+</div>
+
 
         </aside>
 

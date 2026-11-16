@@ -26,4 +26,4 @@ def login_usuario(request):
 @require_POST
 def logout_usuario(request):
     logout(request)
-    return redirect('usuarios:login')
+    return redirect('core:home')

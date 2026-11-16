@@ -6,6 +6,7 @@ from .forms import ArtesaoForm
 from .models import Artesao
 from django.contrib.auth.decorators import login_required
 from .forms import EditarArtesaoForm
+from django.contrib.auth import login
 
 
 def regioes(request):
@@ -34,6 +35,7 @@ def cadastrar_artesao(request):
                 artesao.save()
                 form.save_m2m()
 
+            login(request, usuario)
             return redirect(
                 'artesaos:cadastro_sucesso',
                 artesao_id=artesao.id
@@ -49,10 +51,12 @@ def cadastrar_artesao(request):
     )
 
 
+@login_required(login_url='usuarios:login')
 def cadastro_sucesso(request, artesao_id):
     artesao = get_object_or_404(
         Artesao,
-        id=artesao_id
+        id=artesao_id,
+        usuario=request.user
     )
 
     return render(
@@ -61,11 +65,12 @@ def cadastro_sucesso(request, artesao_id):
         {'artesao': artesao}
     )
 
-
+@login_required(login_url='usuarios:login')
 def cadastro_sem_produtos(request, artesao_id):
     artesao = get_object_or_404(
         Artesao,
-        id=artesao_id
+        id=artesao_id,
+        usuario=request.user
     )
 
     return render(
@@ -73,7 +78,6 @@ def cadastro_sem_produtos(request, artesao_id):
         'artesaos/cadastro_sem_produtos.html',
         {'artesao': artesao}
     )
-
 @login_required(login_url='usuarios:login')
 def editar_perfil(request):
     artesao = get_object_or_404(
