@@ -2,9 +2,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.db import transaction
-
 from .forms import ArtesaoForm
 from .models import Artesao
+from django.contrib.auth.decorators import login_required
+from .forms import EditarArtesaoForm
 
 
 def regioes(request):
@@ -71,4 +72,33 @@ def cadastro_sem_produtos(request, artesao_id):
         request,
         'artesaos/cadastro_sem_produtos.html',
         {'artesao': artesao}
+    )
+
+@login_required(login_url='usuarios:login')
+def editar_perfil(request):
+    artesao = get_object_or_404(
+        Artesao,
+        usuario=request.user
+    )
+
+    if request.method == 'POST':
+        form = EditarArtesaoForm(
+            request.POST,
+            instance=artesao
+        )
+
+        if form.is_valid():
+            form.save()
+            return redirect('core:dashboard_artesao')
+
+    else:
+        form = EditarArtesaoForm(instance=artesao)
+
+    return render(
+        request,
+        'artesaos/editar_perfil.html',
+        {
+            'form': form,
+            'artesao': artesao
+        }
     )

@@ -1,3 +1,4 @@
+
 from django.urls import path
 from . import views
 
@@ -26,5 +27,11 @@ urlpatterns = [
         'cadastro-sem-produtos/<int:artesao_id>/',
         views.cadastro_sem_produtos,
         name='cadastro_sem_produtos'
+    ),
+
+    path(
+        'editar-perfil/',
+        views.editar_perfil,
+        name='editar_perfil'
     ),
 ]

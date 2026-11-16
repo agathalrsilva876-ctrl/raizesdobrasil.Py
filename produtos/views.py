@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProdutoForm
 from .models import Produto, FotoProduto
 from artesaos.models import Artesao
+from django.contrib.auth.decorators import login_required
 
 
-# PÁGINAS DAS REGIÕES
+
 
 def produtos_norte(request):
     produtos = Produto.objects.filter(regiao='Norte')
@@ -32,10 +33,15 @@ def produtos_centro_oeste(request):
     return render(request, 'produtos/Centro_oeste.html', {'produtos': produtos})
 
 
-# CADASTRO DE PRODUTOS
 
+
+@login_required(login_url='usuarios:login')
 def cadastrar_produto(request, artesao_id):
-    artesao = get_object_or_404(Artesao, id=artesao_id)
+    artesao = get_object_or_404(
+        Artesao,
+        id=artesao_id,
+        usuario=request.user
+    )
 
     if request.method == 'POST':
         form = ProdutoForm(request.POST)
@@ -84,7 +90,7 @@ def cadastrar_produto(request, artesao_id):
     )
 
 
-# TELA DE CADASTRO CONCLUÍDO
+
 
 def produto_cadastrado(request, artesao_id):
     artesao = get_object_or_404(Artesao, id=artesao_id)
@@ -110,3 +116,54 @@ def detalhes_produto(request, produto_id):
             'produto': produto
         }
     )
+
+
+
+
+@login_required(login_url='usuarios:login')
+def editar_produto(request, produto_id):
+    produto = get_object_or_404(
+        Produto,
+        id=produto_id,
+        artesao__usuario=request.user
+    )
+
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, instance=produto)
+
+        if form.is_valid():
+            form.save()
+            return redirect('core:meus_produtos')
+
+    else:
+        form = ProdutoForm(instance=produto)
+
+    return render(
+        request,
+        'produtos/editar.html',
+        {
+            'form': form,
+            'produto': produto
+        }
+    )
+
+
+@login_required(login_url='usuarios:login')
+def excluir_produto(request, produto_id):
+    produto = get_object_or_404(
+        Produto,
+        id=produto_id,
+        artesao__usuario=request.user
+    )
+
+    if request.method == 'POST':
+        produto.delete()
+        return redirect('core:meus_produtos')
+
+    return render(
+        request,
+        'produtos/excluir.html',
+        {'produto': produto}
+    )
+
+

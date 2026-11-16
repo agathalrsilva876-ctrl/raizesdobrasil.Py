@@ -1,0 +1,35 @@
+
+{% extends 'usuarios/dashboard_artesao.html' %}
+
+{% block content %}
+
+<div class="produtos-container">
+
+    <div class="produtos-topo">
+        <div>
+            <h1>Meu Perfil</h1>
+            <p>Atualize as informações da sua loja.</p>
+        </div>
+    </div>
+
+    <div class="formulario-container">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn-editar">
+                Salvar alterações
+            </button>
+
+            <a href="{% url 'core:dashboard_artesao' %}">
+                Cancelar
+            </a>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

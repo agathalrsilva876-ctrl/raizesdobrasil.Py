@@ -11,10 +11,11 @@
             <p>Gerencie os produtos cadastrados na plataforma.</p>
         </div>
 
-        <a href="#" class="btn-cadastrar">
-            <span class="material-symbols-outlined">add</span>
-            Cadastrar produto
-        </a>
+        <a href="{% url 'produtos:cadastrar' request.user.artesao.id %}"
+   class="btn-cadastrar">
+    <span class="material-symbols-outlined">add</span>
+    Cadastrar produto
+</a>
     </div>
 
     {% if produtos %}
@@ -38,6 +39,21 @@
                         <h3>{{ produto.nome }}</h3>
                         <p>{{ produto.cidade }} - {{ produto.estado }}</p>
                         <p>R$ {{ produto.preco }}</p>
+
+                        <!-- BOTÃO EDITAR -->
+                        <a href="{% url 'produtos:editar_produto' produto.id %}"
+                           class="btn-editar">
+                            <span class="material-symbols-outlined">edit</span>
+                            Editar
+                        </a>
+
+
+                        <a href="{% url 'produtos:excluir_produto' produto.id %}"
+                           class="btn-excluir">
+                            <span class="material-symbols-outlined">delete</span>
+                            Excluir
+                        </a>
+
                     </div>
 
                 </div>

@@ -4,6 +4,18 @@ from artesaos.models import Artesao
 
 
 class Produto(models.Model):
+
+    STATUS_CHOICES = [
+        ('publicado', 'Publicado'),
+        ('em_analise', 'Em análise'),
+    ]
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='publicado'
+    )
+
     artesao = models.ForeignKey(
         Artesao,
         on_delete=models.CASCADE,

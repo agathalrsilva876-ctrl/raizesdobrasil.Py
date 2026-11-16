@@ -26,7 +26,6 @@
 <aside class="pp-sidebar">
 
     <h2 class="pp-logo">
-        <span class="material-symbols-outlined">storefront</span>
         Raízes do Brasil
     </h2>
 
@@ -42,24 +41,26 @@
     <span>Meus produtos</span>
         </a>
 
-        <a href="#">
-            <span class="material-symbols-outlined">add_box</span>
-            <span>Cadastrar produto</span>
-        </a>
 
-        <a href="#">
-            <span class="material-symbols-outlined">person</span>
-            <span>Meu perfil</span>
-        </a>
+        <a href="{% url 'artesaos:editar_perfil' %}">
+    <span class="material-symbols-outlined">person</span>
+    <span>Meu perfil</span>
+</a>
 
     </nav>
 
-    <div class="pp-sidebar-bottom">
-        <a href="#">
+
+<div class="pp-sidebar-bottom">
+    <form method="POST" action="{% url 'usuarios:logout' %}">
+        {% csrf_token %}
+
+        <button type="submit" class="pp-logout-btn">
             <span class="material-symbols-outlined">logout</span>
             <span>Sair</span>
-        </a>
-    </div>
+        </button>
+    </form>
+</div>
+
 
 </aside>
 
@@ -77,15 +78,7 @@
             <p>Área do artesão</p>
         </div>
 
-        <div class="pp-header-actions">
-            <span class="material-symbols-outlined pp-icon-btn">
-                notifications
-            </span>
 
-            <span class="material-symbols-outlined pp-icon-btn">
-                account_circle
-            </span>
-        </div>
 
     </header>
 
@@ -101,50 +94,43 @@
                     <span class="material-symbols-outlined">inventory_2</span>
                     Meus Produtos
                 </h3>
-                <p class="pp-value">--</p>
+                <p class="pp-value">{{ total_produtos }}</p>
                 <small>Total de produtos cadastrados</small>
             </div>
 
-            <div class="pp-card">
-                <h3>
-                    <span class="material-symbols-outlined">check_circle</span>
-                    Publicados
-                </h3>
-                <p class="pp-value">--</p>
-                <small>Produtos disponíveis no site</small>
-            </div>
 
-            <div class="pp-card">
-                <h3>
-                    <span class="material-symbols-outlined">pending_actions</span>
-                    Em análise
-                </h3>
-                <p class="pp-value">--</p>
-                <small>Aguardando aprovação</small>
-            </div>
+<div class="pp-card pp-card-lg">
+    <h3>
+        <span class="material-symbols-outlined">history</span>
+        Meus Produtos Recentes
+    </h3>
 
-            <div class="pp-card pp-card-lg">
-                <h3>
-                    <span class="material-symbols-outlined">history</span>
-                    Meus Produtos Recentes
-                </h3>
+    {% if produtos_recentes %}
 
-                <div class="pp-item">
-                    <div class="pp-item-text">
-                        <strong>Seus produtos aparecerão aqui</strong>
-                        <small>Acompanhe os últimos produtos cadastrados.</small>
-                    </div>
-                    <span class="material-symbols-outlined">inventory</span>
+        {% for produto in produtos_recentes %}
+            <div class="pp-item">
+                <div class="pp-item-text">
+                    <strong>{{ produto.nome }}</strong>
+                    <small>R$ {{ produto.preco }}</small>
                 </div>
 
-                <div class="pp-item">
-                    <div class="pp-item-text">
-                        <strong>Gerencie seus produtos</strong>
-                        <small>Consulte e atualize seus cadastros.</small>
-                    </div>
+                <a href="{% url 'produtos:editar_produto' produto.id %}">
                     <span class="material-symbols-outlined">edit</span>
-                </div>
+                </a>
             </div>
+        {% endfor %}
+
+    {% else %}
+
+        <div class="pp-item">
+            <div class="pp-item-text">
+                <strong>Nenhum produto cadastrado</strong>
+                <small>Seus produtos aparecerão aqui.</small>
+            </div>
+        </div>
+
+    {% endif %}
+</div>
 
             <div class="pp-card">
                 <h3>

@@ -15,9 +15,29 @@ def sudeste(request):
 def dashboard(request):
     return render(request, 'usuarios/dashboard.html')
 
+
+
+
 @login_required(login_url='usuarios:login')
 def dashboard_artesao(request):
-    return render(request, 'usuarios/dashboard_artesao.html')
+    produtos = Produto.objects.filter(
+        artesao__usuario=request.user
+    )
+
+    total_produtos = produtos.count()
+    produtos_recentes = produtos.order_by('-id')[:5]
+
+    return render(
+        request,
+        'usuarios/dashboard_artesao.html',
+        {
+            'total_produtos': total_produtos,
+            'produtos_recentes': produtos_recentes,
+        }
+    )
+
+
+
 
 @login_required(login_url='usuarios:login')
 def meus_produtos(request):

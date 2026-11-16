@@ -1,0 +1,29 @@
+
+{% extends 'usuarios/dashboard_artesao.html' %}
+
+{% block content %}
+
+<div class="produtos-container">
+    <h1>Excluir Produto</h1>
+
+    <p>
+        Tem certeza de que deseja excluir
+        <strong>{{ produto.nome }}</strong>?
+    </p>
+
+    <p>Essa ação não poderá ser desfeita.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn-excluir">
+            Confirmar exclusão
+        </button>
+
+        <a href="{% url 'core:meus_produtos' %}">
+            Cancelar
+        </a>
+    </form>
+</div>
+
+{% endblock %}
