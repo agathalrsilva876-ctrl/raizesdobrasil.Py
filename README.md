@@ -25,12 +25,11 @@ A proposta busca aumentar a visibilidade dos artesãos e facilitar o acesso do p
 
 ## Equipe
 
-- Ágatha Lopes — a definir
-- Izabella Vitória — a definir
-- Yasmin Borges — a definir
-- Janaine Martins — a definir
-- Integrante 5 — a definir
-- Integrante 6 — a definir
+- Ágatha Lopes 
+- Izabella Vitória 
+- Yasmin Borges 
+- Janaine Martins 
+
 
 ---
 
